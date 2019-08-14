@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import './assets/css/grid.css';
+import gradient from './assets/img/loginimg/gradient.jpg';
+
+import Login from './container/Login/Login';
+
+import { Route, Switch } from 'react-router-dom';
+import Fin from './container/Fin/Fin';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="container">
+      <Switch>
+        <Route path='/signup' render={() => <Login info='Google ilə qeydiyyatdan keç' />} />
+        <Route path='/login' render={() => <Login info='Google ilə daxil ol' />} />
+        <Route path='/fin' render={() => <Fin />} />
+    </Switch>
+        <img className='gradient' src={gradient} alt="gradient" />
+      </main>
+
   );
 }
 

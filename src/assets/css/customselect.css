@@ -1,0 +1,189 @@
+/** Custom Select **/
+.custom-select-wrapper {
+  width: 100%;
+
+  position: relative;
+  display: inline-block;
+  user-select: none;
+}
+.custom-select-wrapper select {
+  display: none;
+}
+.custom-select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.custom-select-trigger {
+  position: relative;
+  display: block;
+  padding-left: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #303030;
+  line-height: 42px;
+  background: #fff;
+  cursor: pointer;
+  border-bottom: 0.5px solid #f2f2f2;
+}
+.custom-select-trigger:after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 5px;
+  height: 5px;
+  top: 50%;
+  right: 25px;
+  margin-top: -3px;
+  border-bottom: 2px solid #303030;
+  border-right: 2px solid #303030;
+  transform: rotate(45deg) translateY(-50%);
+  transition: all 0.4s ease-in-out;
+  transform-origin: 50% 0;
+}
+.custom-select.opened .custom-select-trigger:after {
+  margin-top: 3px;
+  transform: rotate(-135deg) translateY(-50%);
+}
+.custom-options {
+  position: absolute;
+  display: block;
+  top: 42px;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.07);
+  background-color: #fff;
+  transition: all 0.4s;
+z-index: 5;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-15px);
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.08);
+}
+.custom-select.opened .custom-options {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.custom-option {
+  position: relative;
+  background-color: #fff;
+  display: block;
+  padding: 0 22px;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 14px;
+  font-weight: 500;
+  color: #30303080;
+  line-height: 39px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.custom-option:first-of-type {
+  display:none;
+}
+.custom-option:last-of-type {
+  border-bottom: 0;
+}
+.custom-option:hover,
+.custom-option.selection {
+  background-color: #fafbff;
+  color: #303030;
+}
+/* -------------------- Page Styles (not required) */
+
+/* -------------------- Select Box Styles: bavotasan.com Method (with special adaptations by ericrasch.com) */
+/* -------------------- Source: http://bavotasan.com/2011/style-select-box-using-only-css/ */
+.styled-select {
+   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+}
+
+.styled-select.slate {
+   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+   height: 34px;
+   width: 240px;
+}
+
+.styled-select.slate select {
+   border: 1px solid #ccc;
+   font-size: 16px;
+   height: 34px;
+   width: 268px;
+}
+
+/* -------------------- Colors: Background */
+.slate   { background-color: #ddd; }
+.green   { background-color: #779126; }
+.blue    { background-color: #3b8ec2; }
+.yellow  { background-color: #eec111; }
+.black   { background-color: #000; }
+
+/* -------------------- Colors: Text */
+.slate select   { color: #000; }
+.green select   { color: #fff; }
+.blue select    { color: #fff; }
+.yellow select  { color: #000; }
+.black select   { color: #fff; }
+
+
+/* -------------------- Select Box Styles: danielneumann.com Method */
+/* -------------------- Source: http://danielneumann.com/blog/how-to-style-dropdown-with-css-only/ */
+select {
+   border: 0;
+   color: #EEE;
+   background: transparent;
+   font-size: 20px;
+   font-weight: bold;
+   padding: 2px 10px;
+   width: 378px;
+   *width: 350px;
+   *background: #58B14C;
+   -webkit-appearance: none;
+}
+
+
+
+
+/* -------------------- Select Box Styles: stackoverflow.com Method */
+/* -------------------- Source: http://stackoverflow.com/a/5809186 */
+select#soflow, select#soflow-color {
+   -webkit-appearance: button;
+    -webkit-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -webkit-user-select: none;
+    background-position: 97% center;
+    background-repeat: no-repeat;
+    color: #555;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 13px 21px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    font-weight: 500;
+}
+
+select#soflow-color {
+   color: #fff;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
+   background-color: #779126;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   padding-left: 15px;
+}
