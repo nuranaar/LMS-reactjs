@@ -54,7 +54,7 @@ a:hover {
 
 p,
 i {
-  color: #3a3a3a;
+  fill: #3a3a3a;
 }
 
 ul {
@@ -96,6 +96,10 @@ hr {
 
 .input-error {
   border: 1px solid #ec3724 !important;
+}
+.input-error:focus{
+border: 1px solid #0286cd !important;
+outline: none;
 }
 
 .error-message {
@@ -242,9 +246,10 @@ video {
   margin-left: auto;
 }
 
-.header .head-right i {
+.header .head-right svg.mdi {
   font-size: 22px;
   padding: 18px;
+  fill: #3a3a3a;
 }
 
 .header .head-right .notification {
@@ -419,6 +424,12 @@ video {
   overflow: auto;
   max-height: 95vh;
 }
+.popups{
+display: none;
+}
+ .popups.open{
+display: flex;
+}
 
 #add-label .popup .close,
 #add-rol .popup .close,
@@ -429,7 +440,7 @@ video {
 #thanks-popup .popup .close {
   position: absolute;
   right: 35px;
-  top: 16px;
+  top: 28px;
   width: 15px;
   height: 15px;
   cursor: pointer;
@@ -455,9 +466,10 @@ video {
   background-color: #0286cd;
   line-height: 60px;
   font-size: 20px;
-  padding-left: 30px;
+  padding: 10px 0;
   font-weight: bold;
-  text-align: left;
+  text-align: center;
+  width: 100%;
 }
 
 #add-label .popup .popup-header p,
@@ -592,13 +604,13 @@ video {
   padding: 10px 10px 0 0;
 }
 
-#add-label .popup .popup-body .add-input i,
-#add-rol .popup .popup-body .add-input i,
-#fin-info .popup .popup-body .add-input i,
-#confirm .popup .popup-body .add-input i,
-#send-note .popup .popup-body .add-input i,
-#add-user .popup .popup-body .add-input i,
-#thanks-popup .popup .popup-body .add-input i {
+#add-label .popup .popup-body .add-input svg.mdi,
+#add-rol .popup .popup-body .add-input svg.mdi,
+#fin-info .popup .popup-body .add-input svg.mdi,
+#confirm .popup .popup-body .add-input svg.mdi,
+#send-note .popup .popup-body .add-input svg.mdi,
+#add-user .popup .popup-body .add-input svg.mdi,
+#thanks-popup .popup .popup-body .add-input svg.mdi {
   border: 2px solid #505050;
   border-radius: 100%;
   width: 14px;
@@ -655,7 +667,7 @@ main .weekly-pagination .page-item:hover {
   color: #fff;
 }
 
-main .weekly-pagination .page-item i {
+main .weekly-pagination .page-item svg.mdi {
   width: 14px;
   height: 9.3px;
 }
@@ -785,7 +797,7 @@ main .weekly-pagination .btn-this-week:hover {
   justify-content: space-evenly;
 }
 
-.sides .groups .groups-list .groups-item .group .start-btn i {
+.sides .groups .groups-list .groups-item .group .start-btn svg.mdi {
   font-size: 11px;
 }
 
@@ -1893,8 +1905,8 @@ main .weekly-pagination .btn-this-week:hover {
   background-color: #ffffff38;
 }
 
-#admin .head .add i {
-  color: #0286cd;
+#admin .head .add svg.mdi {
+  fill: #0286cd;
   position: absolute;
   top: 13px;
   left: 13px;
@@ -2254,6 +2266,8 @@ main .weekly-pagination .btn-this-week:hover {
   border-radius: 5px;
   font-size: 14px;
   font-weight: bold;
+  border: 1px solid #fafafa;
+
 }
 
 .form .input::-webkit-input-placeholder {
@@ -2676,6 +2690,9 @@ main .weekly-pagination .btn-this-week:hover {
   flex-wrap: wrap;
   -ms-flex-line-pack: center;
   align-content: center;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
 }
 
 #segmentations .title {
@@ -2703,29 +2720,31 @@ main .weekly-pagination .btn-this-week:hover {
   padding: 57px 0;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
+  position: relative;
+  bottom: 0px;
 }
 
-#segmentations .segments .segment .icon .mdi {
+#segmentations .segments .segment .icon svg.mdi {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   margin: auto;
   font-size: 60px;
 }
 
-#segmentations .segments .segment .icon.teacher-icon .mdi {
-  color: #00a659;
+#segmentations .segments .segment .icon.teacher-icon svg.mdi {
+  fill: #00a659;
 }
 
-#segmentations .segments .segment .icon.student-icon .mdi {
-  color: #ffc906;
+#segmentations .segments .segment .icon.student-icon svg.mdi {
+  fill: #ffc906;
 }
 
-#segmentations .segments .segment .icon.manager-icon .mdi {
-  color: #f0812b;
+#segmentations .segments .segment .icon.manager-icon svg.mdi {
+  fill: #f0812b;
 }
 
-#segmentations .segments .segment .icon.admin-icon .mdi {
-  color: #873996;
+#segmentations .segments .segment .icon.admin-icon svg.mdi {
+  fill: #873996;
 }
 
 #segmentations .segments .segment .segment-title {
@@ -2738,11 +2757,11 @@ main .weekly-pagination .btn-this-week:hover {
 }
 
 #segmentations .segments .segment:hover {
-  margin-top: 8px;
+  bottom: 8px;
 }
 
-#segmentations .segments .segment:hover .icon .mdi {
-  color: #0286cd;
+#segmentations .segments .segment:hover .icon svg.mdi {
+  fill: #0286cd;
 }
 
 .header-gradient {
@@ -2777,35 +2796,30 @@ main .weekly-pagination .btn-this-week:hover {
   box-shadow: 0 0 8px 0 #99a9be30;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
+  position: relative;
+  bottom: 0;
 }
 
 #menu .menu-cards .card:hover {
-  margin-top: 8px;
+  bottom: 8px;
 }
 
-#menu .menu-cards .card:hover .icon .mdi {
-  color: #0286cd;
+#menu .menu-cards .card:hover .icon svg.mdi {
+  fill: #0286cd;
 }
 
-#menu .menu-cards .card .icon .mdi {
+#menu .menu-cards .card .icon svg.mdi {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  color: #3a3a3a;
+  fill: #3a3a3a;
   font-size: 48px;
 }
 
-#menu .menu-cards .card .icon .mdi::before {
+#menu .menu-cards .card .icon svg.mdi {
   padding: 50px 30px 0;
   line-height: 48px;
 }
 
-#menu .menu-cards .card .icon .mdi.mdi-cash-multiple::before {
-  padding: 43px 30px 0;
-}
-
-#menu .menu-cards .card .icon .mdi.mdi-account::before {
-  padding: 44px 30px 0;
-}
 
 #menu .menu-cards .card .card-desc {
   margin-top: 45px;
@@ -2857,7 +2871,8 @@ footer .link-list .link-item {
   height: 18px;
   padding-left: 70px;
 }
-
+footer .link-list .link-item svg.mdi {
+fill:#6f6f6f;}
 footer .link-list .link-item:nth-child(2) a img {
   height: 92%;
 }
@@ -2955,7 +2970,7 @@ nav.menu-bar .logo {
 }
 
 nav.menu-bar .logo img {
-  width: 120px;
+  width: 64%;
 }
 
 nav.menu-bar .nav-list .nav-item {
