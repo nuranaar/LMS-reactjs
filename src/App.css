@@ -97,9 +97,9 @@ hr {
 .input-error {
   border: 1px solid #ec3724 !important;
 }
-.input-error:focus{
-border: 1px solid #0286cd !important;
-outline: none;
+.input-error:focus {
+  border: 1px solid #0286cd !important;
+  outline: none;
 }
 
 .error-message {
@@ -276,6 +276,7 @@ video {
 .header .head-right .user-photo .user-pp {
   width: 46px;
   height: 46px;
+  object-fit: cover;
   border-radius: 100%;
 }
 
@@ -424,11 +425,11 @@ video {
   overflow: auto;
   max-height: 95vh;
 }
-.popups{
-display: none;
+.popups {
+  display: none;
 }
- .popups.open{
-display: flex;
+.popups.open {
+  display: flex;
 }
 
 #add-label .popup .close,
@@ -2267,7 +2268,6 @@ main .weekly-pagination .btn-this-week:hover {
   font-size: 14px;
   font-weight: bold;
   border: 1px solid #fafafa;
-
 }
 
 .form .input::-webkit-input-placeholder {
@@ -2600,6 +2600,9 @@ main .weekly-pagination .btn-this-week:hover {
   position: relative;
   display: none;
 }
+#logout.open {
+  display: block;
+}
 
 #logout .overlay {
   z-index: 2;
@@ -2613,7 +2616,7 @@ main .weekly-pagination .btn-this-week:hover {
 #logout .profile-actions {
   z-index: 3;
   position: absolute;
-  top: 18px;
+  top: 42px;
   right: 0;
   background-color: #fff;
   width: 376px;
@@ -2634,11 +2637,12 @@ main .weekly-pagination .btn-this-week:hover {
   width: 71px;
   height: 71px;
   border-radius: 100%;
+  object-fit: cover;
 }
 
 #logout .profile-actions .user .user-info .fullname {
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 #logout .profile-actions .user .user-info .email {
@@ -2656,17 +2660,15 @@ main .weekly-pagination .btn-this-week:hover {
   border-bottom: 1px solid #f8f8f8;
 }
 
-#logout .profile-actions .segments .segment .icon {
-  padding: 14px 8px;
-}
-
-#logout .profile-actions .segments .segment .icon img {
-  width: 80%;
+#logout .profile-actions .segments .segment .icon svg.mdi {
+  padding: 13px;
+  fill: #3a3a3a;
 }
 
 #logout .profile-actions .segments .segment .segment-title {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
+  opacity: 0.85;
 }
 
 #logout .profile-actions .logout {
@@ -2816,10 +2818,9 @@ main .weekly-pagination .btn-this-week:hover {
 }
 
 #menu .menu-cards .card .icon svg.mdi {
-  padding: 50px 30px 0;
+  padding: 50px 25px 0;
   line-height: 48px;
 }
-
 
 #menu .menu-cards .card .card-desc {
   margin-top: 45px;
@@ -2828,7 +2829,7 @@ main .weekly-pagination .btn-this-week:hover {
 
 #menu .menu-cards .card .card-desc .title {
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 800;
   color: #3a3a3a;
   padding-bottom: 12px;
 }
@@ -2872,7 +2873,8 @@ footer .link-list .link-item {
   padding-left: 70px;
 }
 footer .link-list .link-item svg.mdi {
-fill:#6f6f6f;}
+  fill: #6f6f6f;
+}
 footer .link-list .link-item:nth-child(2) a img {
   height: 92%;
 }
@@ -2888,53 +2890,24 @@ footer .link-list .link-item img {
 nav.menu-bar {
   background-color: #fff;
   z-index: 2;
-  position: absolute;
-  top: 17px;
+  position: relative;
+  top: -1px;
   left: 0;
   height: calc(100vh - 18px);
   width: 80px;
   -webkit-box-shadow: 0 0 10px 0 #99a9be37;
   box-shadow: 0 0 10px 0 #99a9be37;
   overflow: hidden;
-  -webkit-transition: width 0.2s;
-  transition: width 0.2s;
+  -webkit-transition: width 0.3s;
+  transition: width 0.3s;
 }
 
 nav.menu-bar.active {
-  position: relative;
-  top: -1px;
-  width: 306px;
+  width: 272px;
 }
 
-nav.menu-bar.active .open-menubar {
-  -webkit-transform: rotate(-180deg);
-  transform: rotate(-180deg);
-  right: 32px;
-  top: 25px;
-}
 
 nav.menu-bar.active .logo {
-  visibility: visible;
-  -webkit-transition: visibility 0.5s;
-  transition: visibility 0.5s;
-}
-
-nav.menu-bar.active:hover {
-  width: 306px;
-}
-
-nav.menu-bar:hover {
-  width: 250px;
-}
-
-nav.menu-bar:hover .open-menubar {
-  -webkit-transform: rotate(-180deg);
-  transform: rotate(-180deg);
-  right: 32px;
-  top: 25px;
-}
-
-nav.menu-bar:hover .logo {
   visibility: visible;
   -webkit-transition: visibility 0.5s;
   transition: visibility 0.5s;
@@ -2946,27 +2919,25 @@ nav.menu-bar .open-menubar {
   transition: all 0.3s;
   position: absolute;
   top: 24px;
-  right: 24px;
+  right: 20px;
 }
 
 nav.menu-bar .open-menubar:hover {
   opacity: 1;
 }
 
-nav.menu-bar .open-menubar img {
-  width: 21px;
+nav.menu-bar .open-menubar svg.mdi {
+  fill: #3a3a3a;
 }
 
-nav.menu-bar .open-menubar .light {
-  position: absolute;
-  top: 2px;
-  left: -8px;
-  color: #a0a0a0;
-}
+
 
 nav.menu-bar .logo {
   visibility: hidden;
   padding: 20px 30px;
+  height: 30px;
+  line-height: 37px;
+
 }
 
 nav.menu-bar .logo img {
@@ -3002,15 +2973,17 @@ nav.menu-bar .nav-list .nav-item.active::after {
 nav.menu-bar .nav-list .nav-item .icon {
   width: 25px;
   height: 25px;
-  padding: 20px 30px;
+  padding: 20px 25px;
 }
 
-nav.menu-bar .nav-list .nav-item .icon img {
+nav.menu-bar .nav-list .nav-item .icon svg.mdi {
   height: 25px;
+  fill:#3a3a3a;
 }
 
 nav.menu-bar .nav-list .nav-item .nav-text {
   font-size: 16px;
+  padding: 5px;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -3033,7 +3006,6 @@ nav.menu-bar .nav-list .nav-item .nav-text {
   background-color: #f8f8f8;
   height: calc(100vh - 98px);
   overflow-y: auto;
-  padding-left: 80px;
 }
 
 .page-body::-webkit-scrollbar-track {

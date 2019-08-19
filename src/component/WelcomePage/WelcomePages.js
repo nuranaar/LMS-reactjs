@@ -1,8 +1,8 @@
 import React from 'react'
-import WelcomeHeader from './WelcomeHeader/WelcomeHeader';
+import WelcomeHeader from '../../container/WelcomeHeader/WelcomeHeader';
 import Footer from './Footer/Footer';
 import gradient from '../../assets/img/loginimg/gradient.jpg';
-import WelcomeBody from './WelcomeBody/WelcomeBody';
+import WelcomeBody from '../../container/WelcomeBody/WelcomeBody';
 
 export default function WelcomePages() {
     return (

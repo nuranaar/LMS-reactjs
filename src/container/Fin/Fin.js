@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import infoIcon from '../../assets/img/loginimg/icon info.png';
 import Button from '../../component/UI/Button/Button';
 import Modal from '../../component/UI/Modal/Modal';
-// import userPhoto from '../../assets/img/users/user.jpg';
-// import oldID from '../../assets/img/kohne shexsiyyet vesiqesi.jpg';
-// import newID from '../../assets/img/yeni shexsiyyet.jpg';
 
 export default class Fin extends Component {
     state = {

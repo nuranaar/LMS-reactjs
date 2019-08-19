@@ -1,9 +1,11 @@
 import React from 'react';
 import Icon from '@mdi/react'
-import { mdiTeach } from '@mdi/js'
-import { mdiSchool } from '@mdi/js'
-import { mdiAccountTie } from '@mdi/js'
-import { mdiKeyVariant } from '@mdi/js'
+import {
+    mdiTeach,
+    mdiSchool,
+    mdiAccountTie,
+    mdiKeyVariant
+} from '@mdi/js'
 
 export default function Rol(props) {
     let path = null;
@@ -30,7 +32,7 @@ export default function Rol(props) {
             path = null;
     }
     return (
-        <div class="segment">
+        <div class="segment" onClick={props.clicked}>
             <a href="#">
                 <div class={"icon " + props.title + "-icon"}>
                     <Icon

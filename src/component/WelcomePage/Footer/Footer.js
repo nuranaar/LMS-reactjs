@@ -9,24 +9,24 @@ import {mdiLinkedin} from '@mdi/js'
 export default function Footer() {
     return (
         <footer>
-        <div class="container">
+        <div className="container">
 
-            <div class="row align-items-center p-3">
+            <div className="row align-items-center p-3">
 
-                <div class="col-lg-5 copywriter">
+                <div className="col-lg-5 copywriter">
                     © 2015 - 2019. Code Academy — Bütün hüquqlar qorunur.
                 </div>
-                <div class="col-lg-3">
-                    <div class="logo">
-                        <img class="CA-Copy" src={logo} alt="logo"/>
+                <div className="col-lg-3">
+                    <div className="logo">
+                        <img className="CA-Copy" src={logo} alt="logo"/>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <ul class="link-list">
-                        <li class="link-item"><a href="#"><Icon path={mdiFacebook} size={1} className='mdi'/></a></li>
-                        <li class="link-item"><a href="#"><Icon path={mdiTwitter} size={1} className='mdi'/></a></li>
-                        <li class="link-item"><a href="#"><Icon path={mdiInstagram} size={1} className='mdi'/></a></li>
-                        <li class="link-item"><a href="#"><Icon path={mdiLinkedin} size={1} className='mdi'/></a></li>
+                <div className="col-lg-4">
+                    <ul className="link-list">
+                        <li className="link-item"><a href="#"><Icon path={mdiFacebook} size={1} className='mdi'/></a></li>
+                        <li className="link-item"><a href="#"><Icon path={mdiTwitter} size={1} className='mdi'/></a></li>
+                        <li className="link-item"><a href="#"><Icon path={mdiInstagram} size={1} className='mdi'/></a></li>
+                        <li className="link-item"><a href="#"><Icon path={mdiLinkedin} size={1} className='mdi'/></a></li>
                     </ul>
                 </div>
 
