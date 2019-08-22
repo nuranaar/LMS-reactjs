@@ -55,7 +55,6 @@ export default class ProfilePage extends Component {
                                 </div>
                                 <div className="col-lg-9">
                                     {this.state.rols.filter(rol => rol.name === this.state.currentRol).map(rol => { return rol.datas.map(data => { return <ProfileDatasRead data={data} key={data.id} /> }) })}
-
                                     <div className="form-group">
                                         <p className="label">Ad</p>
                                         <p className="input">Gülsüm</p>

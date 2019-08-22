@@ -1,0 +1,203 @@
+@font-face {
+  font-family: "VisbyCF";
+  src: url("../fonts/VisbyCF-Bold.otf") format("opentype"), url("../fonts/VisbyCF-Bold-az.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "VisbyCF";
+  src: url("../fonts/VisbyCF-Heavy.otf") format("opentype"), url("../fonts/VisbyCF-Heavy-az.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "VisbyCF";
+  src: url("../fonts/VisbyCF-Medium.otf") format("opentype"), url("../fonts/VisbyCF-Medium-az.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "VisbyCF";
+  src: url("../fonts/VisbyCF-DemiBold-az.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "VisbyCF";
+  src: url("../fonts/VisbyCF-ExtraBold-az.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+* {
+  font-family: "VisbyCF";
+  font-variant-ligatures: no-common-ligatures !important;
+}
+a {
+  color: $text_color;
+  text-decoration: none;
+  &:hover {
+    color: $text_color;
+    text-decoration: none;
+  }
+}
+p,
+i {
+  color: #3a3a3a;
+}
+ul {
+  list-style-type: none;
+  display: inline;
+  padding: 0;
+}
+h4 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 22px;
+}
+hr {
+  border-color: #00000005;
+  height: 1px;
+  margin: 0px 20px;
+}
+.btn {
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 16px 0px;
+  text-align: center;
+  border: none;
+  &.btn-form {
+    padding: 20px;
+  }
+}
+.input {
+  padding: 16px !important;
+  background-color: $input_bg;
+}
+.input-error {
+  border: 1px solid $warning !important;
+}
+.error-message {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: $warning;
+  list-style: outside;
+  position: relative;
+  padding-left: 11px;
+  &::after {
+    content: "";
+    position: absolute;
+    font-family: "Font Awesome 5 Free";
+    background-color: $warning;
+    width: 4px;
+    height: 4px;
+    top: 4px;
+    left: 0;
+    border-radius: 100%;
+  }
+}
+span,
+div {
+  color: $text_color;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  font-family: "VisbyCF";
+  font-variant-ligatures: no-common-ligatures !important;
+}
+
+%scroll {
+  &::-webkit-scrollbar-track {
+    border-radius: 2px;
+    background-color: #fff;
+  }
+  &::-webkit-scrollbar {
+    width: 4px;
+    background-color: #fff;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #dde1e9;
+  }
+}

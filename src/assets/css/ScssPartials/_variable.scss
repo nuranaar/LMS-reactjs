@@ -1,0 +1,21 @@
+//color
+$text_color: #3a3a3a;
+$span_color: #808080;
+$main_color: #0286cd;
+$btn_color:#4a90e2;
+$input_bg:#fafafa;
+$light_main: lighten(
+  $color: $main_color,
+  $amount: 8%
+);
+$bg_color: #f8f8f8;
+$warning: #ec3724;
+$success: #00d743;
+$bg_warning: #fff3f3;
+$bg_undefined: #e0e0e0;
+$undefined: #a0a0a0;
+$login_color: #3a3a3a;  
+$popup_info:#b3b8c1;
+$shadow: 0 0 10px 0 #99a9be37;
+$main_shadow: 0 0 10px 0 #0286cd37;
+$title:#656565;

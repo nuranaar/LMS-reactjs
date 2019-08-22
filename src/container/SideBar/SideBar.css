@@ -10,23 +10,21 @@
   height: 3px;
   background-color: #3a3a3a;
   top: 15px;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
+  -webkit-transition: all .3s;
+  transition: all .3s;
 }
 
 .open-menubar .burger-menu::after, .open-menubar .burger-menu::before {
   content: "";
   position: absolute;
-  width: 36px;
+  left: 0;
   height: 3px;
   background-color: #3a3a3a;
-  left: 0;
   -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-  -webkit-transition: -webkit-transform 0.2s;
-  transition: -webkit-transform 0.2s;
-  transition: transform 0.2s;
-  transition: transform 0.2s, -webkit-transform 0.2s;
+  transform: rotate(0deg);
+  width: 36px;
+  transition: all .3s;
+
 }
 
 .open-menubar .burger-menu::after {
@@ -38,10 +36,8 @@
 }
 
 .open-menubar .burger-menu.active {
-  width: 3px;
-  left: 18px;
-  -webkit-transition: all 0.1s;
-  transition: all 0.1s;
+  width: 0px;
+  right: 5px;
 }
 
 .open-menubar .burger-menu.active::after {
@@ -49,6 +45,7 @@
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   left: -18px;
+  width: 18px;
 }
 
 .open-menubar .burger-menu.active::before {
@@ -56,5 +53,6 @@
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   left: -18px;
+  width: 18px;
 }
 /*# sourceMappingURL=SideBar.css.map */

@@ -103,11 +103,11 @@ export default class Header extends Component {
                            <Icon path={mdiHelpCircleOutline} size={1} className="mdi"/>
                         </a>
                     </div>
-                    <div className="notification active">
+                    {/* <div className="notification active">
                         <a href="#noti">
                             <Icon path={mdiBellOutline} size={1} className="mdi"/>
                         </a>
-                    </div>
+                    </div> */}
                     <div className="user-photo">
                         <a href="#">
                             <img src={profilePhoto} className="user-pp" alt="user" onClick={this.photoClickHandler} />
