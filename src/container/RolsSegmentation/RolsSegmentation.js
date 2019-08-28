@@ -1,6 +1,7 @@
 import React from 'react'
 import Rol from '../../component/Rol/Rol';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import LoginPages from '../../component/LoginPages/LoginPages';
 
 export default class RolsSegmentation extends React.Component {
     state = {
@@ -18,9 +19,8 @@ export default class RolsSegmentation extends React.Component {
 
         let content;
 
-        if(!this.state.selectedRole)
-        {
-           content = <div id="segmentations">
+        if (!this.state.selectedRole) {
+            content = <div id="segmentations">
                 <div className="title">
                     İstifadəçi hesabını seçin
                 </div>
@@ -32,17 +32,17 @@ export default class RolsSegmentation extends React.Component {
                 </div>
             </div>
         }
-        else{
+        else {
             content = <div>
                 <Redirect to={
-                    {pathname: "/welcome-page"}
+                    { pathname: "/welcome-page" }
                 }></Redirect>
             </div>
         }
         return (
-            <React.Fragment>
+            <LoginPages>
                 {content}
-            </React.Fragment>
+            </LoginPages>
         )
     }
 }

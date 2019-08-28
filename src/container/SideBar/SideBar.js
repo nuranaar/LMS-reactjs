@@ -2,6 +2,7 @@ import React from 'react'
 import logo from '../../assets/img/code_logo.png';
 import Icon from '@mdi/react';
 import './SideBar.css';
+import {Link} from 'react-router-dom';
 import {
     mdiHome,
     mdiAccount,
@@ -35,54 +36,42 @@ export default class SideBar extends React.Component {
 
                 </div>
                 <ul className="nav-list">
-                    <li className="nav-item  d-flex align-items-center justify-content-start ">
+                    <Link to='/home' className="nav-item  d-flex align-items-center justify-content-start ">
                         <div className="icon">
                             <Icon path={mdiHome} size={1.2} className='mdi' />
                         </div>
-                        <a href="#">
                             <p className="nav-text">Əsas səhifə</p>
-                        </a>
-                    </li>
-                    <li className="nav-item active d-flex align-items-center justify-content-start ">
+                    </Link>
+                    <Link to='/profile' className="nav-item active d-flex align-items-center justify-content-start ">
                         <div className="icon">
                             <Icon path={mdiAccount} size={1.2} className='mdi' />
                         </div>
-                        <a href="#">
                             <p className="nav-text">Profil</p>
-                        </a>
-                    </li>
-                    <li className="nav-item  d-flex align-items-center justify-content-start ">
+                    </Link>
+                    <Link to='' className="nav-item  d-flex align-items-center justify-content-start ">
                         <div className="icon">
                             <Icon path={mdiBookMultiple} size={1.2} className='mdi' />
                         </div>
-                        <a href="#">
                             <p className="nav-text">Dərslər</p>
-                        </a>
-                    </li>
-                    <li className="nav-item  d-flex align-items-center justify-content-start ">
+                    </Link>
+                    <Link to='' className="nav-item  d-flex align-items-center justify-content-start ">
                         <div className="icon">
                             <Icon path={mdiCashMultiple} size={1.2} className='mdi' />
                         </div>
-                        <a href="#">
                             <p className="nav-text">Ödənişlər</p>
-                        </a>
-                    </li>
-                    <li className="nav-item  d-flex align-items-center justify-content-start ">
+                    </Link>
+                    <Link to='' className="nav-item  d-flex align-items-center justify-content-start ">
                         <div className="icon">
                             <Icon path={mdiFrequentlyAskedQuestions} size={1.2} className='mdi' />
                         </div>
-                        <a href="#">
                             <p className="nav-text">FAQ</p>
-                        </a>
-                    </li>
-                    <li className="nav-item  d-flex align-items-center justify-content-start ">
+                    </Link>
+                    <Link to='' className="nav-item  d-flex align-items-center justify-content-start ">
                         <div className="icon">
                             <Icon path={mdiHeadset} size={1.2} className='mdi' />
                         </div>
-                        <a href="#">
                             <p className="nav-text">Helpdesk</p>
-                        </a>
-                    </li>
+                    </Link>
                 </ul>
             </nav>
         )

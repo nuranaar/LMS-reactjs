@@ -1,13 +1,13 @@
 .open-menubar {
-  width: 36px;
-  height: 36px;
-  position: relative;
+  width: 28px;
+  height: 28px;
+  right: 25px !important;
 }
 
 .open-menubar .burger-menu {
   position: absolute;
-  width: 36px;
-  height: 3px;
+  width: 28px;
+  height: 4px;
   background-color: #3a3a3a;
   top: 15px;
   -webkit-transition: all .3s;
@@ -18,26 +18,27 @@
   content: "";
   position: absolute;
   left: 0;
-  height: 3px;
+  height: 4px;
   background-color: #3a3a3a;
   -webkit-transform: rotate(0deg);
   transform: rotate(0deg);
-  width: 36px;
+  width: 28px;
   transition: all .3s;
 
 }
 
 .open-menubar .burger-menu::after {
-  bottom: 10px;
+  bottom: 9px;
 }
 
 .open-menubar .burger-menu::before {
-  top: 10px;
+  top: 9px;
 }
 
 .open-menubar .burger-menu.active {
   width: 0px;
-  right: 5px;
+  right: 0;
+  height: 2px;
 }
 
 .open-menubar .burger-menu.active::after {
@@ -45,7 +46,8 @@
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   left: -18px;
-  width: 18px;
+  width: 13px;
+  height: 2px;
 }
 
 .open-menubar .burger-menu.active::before {
@@ -53,6 +55,7 @@
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   left: -18px;
-  width: 18px;
+  width: 13px;
+  height: 2px;
 }
 /*# sourceMappingURL=SideBar.css.map */
