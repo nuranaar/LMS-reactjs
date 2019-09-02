@@ -1212,6 +1212,14 @@ nav.menu-bar .logo img {
   width: 75%;
 }
 
+nav.menu-bar .nav-list {
+  height: calc(100vh - 140px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+nav.menu-bar .nav-list::-webkit-scrollbar{
+  width: 0;
+}
 nav.menu-bar .nav-list .nav-item {
   position: relative;
 }
@@ -1523,7 +1531,7 @@ nav.menu-bar .nav-list .nav-item .nav-text {
   color: #fff;
   width: 200px;
 }
-.page-body #segmentations{
+.page-body #segmentations {
   height: max-content;
 }
 .page-body #segmentations .segments .segment {
@@ -1551,7 +1559,7 @@ nav.menu-bar .nav-list .nav-item .nav-text {
 }
 
 .page-body #statistics .group-pagination {
-  padding: 30px 20px 0;
+  padding: 30px 10px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1560,25 +1568,19 @@ nav.menu-bar .nav-list .nav-item .nav-text {
   align-items: center;
 }
 
-.page-body #statistics .group-pagination .prev,
-.page-body #statistics .group-pagination .next {
-  width: 8px;
-}
-
-.page-body #statistics .group-pagination .prev .icon,
-.page-body #statistics .group-pagination .next .icon {
+.page-body #statistics .group-pagination svg.mdi .icon {
   width: 100%;
+  fill: #3a3a3a;
 }
 
-.page-body #statistics .group-pagination .prev.disabled,
-.page-body #statistics .group-pagination .next.disabled {
+.page-body #statistics .group-pagination svg.mdi.disabled {
   opacity: 0.5;
 }
 
 .page-body #statistics .group-pagination .group {
   font-size: 24px;
   font-weight: 800;
-  padding: 0 16px;
+  padding: 0 6px;
 }
 
 .page-body #statistics .statistics-list .statistic-item {

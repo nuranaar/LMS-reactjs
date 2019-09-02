@@ -35,7 +35,7 @@ export default class SideBar extends React.Component {
                     {/* <img className="CA-Copy" src={hoverIcon} alt="logo" /> */}
 
                 </div>
-                <ul className="nav-list">
+                <div className="nav-list">
                     <Link to='/home' className="nav-item  d-flex align-items-center justify-content-start ">
                         <div className="icon">
                             <Icon path={mdiHome} size={1.2} className='mdi' />
@@ -72,7 +72,7 @@ export default class SideBar extends React.Component {
                         </div>
                             <p className="nav-text">Helpdesk</p>
                     </Link>
-                </ul>
+                </div>
             </nav>
         )
     }

@@ -5,62 +5,92 @@ import book from '../../assets/img/study/hardbound-book-variant.png'
 import p from '../../assets/img/study/P.png'
 import goal from '../../assets/img/study/goal.png';
 import box from '../../assets/img/study/archive-black-box.png';
+import prev from '../../assets/img/study/left.png'
 import LessonsSegmentation from '../../component/LessonsSegmentation/LessonsSegmentation';
+import Icon from '@mdi/react';
+import { mdiChevronLeft, mdiChevronRight } from '@mdi/js';
+import LastPosts from '../LastPosts/LastPosts';
+
 
 export default class LessonsPage extends React.Component {
     state = {
+        group_index: 0,
         rols: [{
             name: 'student',
             segments: [
                 {
-                    id:1,
+                    id: 1,
                     title: 'Davamiyyət',
                     icon: d,
                     route: 'attendance'
                 },
                 {
-                    id:2,
+                    id: 2,
                     title: 'Tapşırıqlar',
                     icon: book,
                     route: 'tasks'
                 },
                 {
-                    id:3,
+                    id: 3,
                     title: 'Dərs planı',
                     icon: p,
                     route: 'plane'
                 },
                 {
-                    id:4,
+                    id: 4,
                     title: 'Proqressim',
                     icon: goal,
                     route: 'progress'
                 },
                 {
-                    id:5,
+                    id: 5,
                     title: 'Resurslar',
                     icon: box,
                     route: 'resurs'
                 },
-                
+            ],
+            groups: [
+                'P404',
+                'I403',
+                'V405'
             ]
         }],
         currentRol: 'student'
+    }
+    prevGroup = () => {
+        let index = this.state.group_index - 1;
+        this.setState({
+            group_index: index
+        })
+    }
+    nextGroup = () => {
+        let index = this.state.group_index + 1;
+        this.setState({
+            group_index: index
+        })
     }
     render() {
         return (
             <div className="page-body" id="student-study">
                 <div className="body">
-                   
-                    <LessonsSegmentation rol={this.state.rols.filter(rol=>rol.name===this.state.currentRol).rols}/>
+                    <section className="segmentations" id="segmentations">
+                        <div className="segments row text-center justify-content-center mt-6 ml-3 mr-3">
+                            {this.state.rols.filter(rol => rol.name === this.state.currentRol).map(rol => { return rol.segments.map(segment => { return <LessonsSegmentation segment={segment} key={segment.id} /> }) })}
 
+                        </div>
+                    </section>
                     <section id="statistics">
                         <div className="row">
-                            <div className="group-pagination col-md-12">
-                                <div className="prev disabled"><img src="/img/study/left.png" alt="" className="icon" /></div>
-                                <p className="group">P404</p>
-                                <div className="next"><img src="/img/study/right.png" alt="" className="icon" /></div>
-                            </div>
+
+                            {/* <div>  {this.state.rols.filter(rol => rol.name === this.state.currentRol).map(rol => rol.groups.map(group => { return <p className="group">{group + rol.groups.length}</p> }))}    </div> */}
+                            {this.state.rols.filter(rol => rol.name === this.state.currentRol).map(rol => {
+                                return <div className="group-pagination col-md-12" key={rol.name}>
+                                    <div className='prev' onClick={this.state.group_index === 0 ? null : this.prevGroup}> <Icon path={mdiChevronLeft} className={['mdi', this.state.group_index === 0 ? 'disabled' : null].join(' ')} size={1} /></div>
+                                    <p className="group">{rol.groups[this.state.group_index]}</p>
+                                    <div className='next' onClick={this.state.group_index === (rol.groups.length - 1) ? null : this.nextGroup}>  < Icon path={mdiChevronRight} className={['mdi', this.state.group_index === (rol.groups.length - 1) ? 'disabled' : null].join(' ')} size={1} /></div>
+                                </div>
+
+                            })}
                             <div className="col-md-8">
                                 <div className="statistics-list row">
                                     <div className="col-md-6 ">
@@ -123,95 +153,7 @@ export default class LessonsPage extends React.Component {
                                 </div>
                             </div>
                             <div className="col-md-4">
-                                <div className="blogs">
-                                    <div className="blogs-header d-flex justify-content-between align-items-center">
-                                        <div className="head-title">Blog</div>
-                                        <button className="btn">Hamısını göstər</button>
-                                    </div>
-                                    <div className="blog-list">
-                                        <ul>
-                                            <li className="blog-item d-flex justify-content-start align-items-center">
-                                                <div className="blog-date">
-                                                    <div className="month">AVQ</div>
-                                                    <div className="day">25</div>
-                                                </div>
-                                                <div className="blog">
-                                                    <div className="title"><a href="#"> Müəllimlər iclası</a></div>
-                                                    <div className="info"><span className="category">Son xəbər </span> |
-                                                    <span className="time">15:00</span></div>
-                                                </div>
-                                            </li>
-                                            <li className="blog-item d-flex justify-content-start align-items-center">
-                                                <div className="blog-date">
-                                                    <div className="month">AVQ</div>
-                                                    <div className="day">25</div>
-                                                </div>
-                                                <div className="blog">
-                                                    <div className="title"><a href="#"> Müəllimlər iclası
-                                                        jhsbdkvhbkhvbskdhfvbjsgfbv</a></div>
-                                                    <div className="info"><span className="category">Son xəbər </span> |
-                                                    <span className="time">15:00</span></div>
-                                                </div>
-                                            </li>
-                                            <li className="blog-item d-flex justify-content-start align-items-center">
-                                                <div className="blog-date">
-                                                    <div className="month">AVQ</div>
-                                                    <div className="day">25</div>
-                                                </div>
-                                                <div className="blog">
-                                                    <div className="title"><a href="#"> Müəllimlər iclası</a></div>
-                                                    <div className="info"><span className="category">Son xəbər </span> |
-                                                    <span className="time">15:00</span></div>
-                                                </div>
-                                            </li>
-                                            <li className="blog-item d-flex justify-content-start align-items-center">
-                                                <div className="blog-date">
-                                                    <div className="month">AVQ</div>
-                                                    <div className="day">25</div>
-                                                </div>
-                                                <div className="blog">
-                                                    <div className="title"><a href="#"> Müəllimlər iclası</a></div>
-                                                    <div className="info"><span className="category">Son xəbər </span> |
-                                                    <span className="time">15:00</span></div>
-                                                </div>
-                                            </li>
-                                            <li className="blog-item d-flex justify-content-start align-items-center">
-                                                <div className="blog-date">
-                                                    <div className="month">AVQ</div>
-                                                    <div className="day">25</div>
-                                                </div>
-                                                <div className="blog">
-                                                    <div className="title"><a href="#"> Müəllimlər iclası</a></div>
-                                                    <div className="info"><span className="category">Son xəbər </span> |
-                                                    <span className="time">15:00</span></div>
-                                                </div>
-                                            </li>
-                                            <li className="blog-item d-flex justify-content-start align-items-center">
-                                                <div className="blog-date">
-                                                    <div className="month">AVQ</div>
-                                                    <div className="day">25</div>
-                                                </div>
-                                                <div className="blog">
-                                                    <div className="title"><a href="#"> Müəllimlər iclası</a></div>
-                                                    <div className="info"><span className="category">Son xəbər </span> |
-                                                    <span className="time">15:00</span></div>
-                                                </div>
-                                            </li>
-                                            <li className="blog-item d-flex justify-content-start align-items-center">
-                                                <div className="blog-date">
-                                                    <div className="month">AVQ</div>
-                                                    <div className="day">25</div>
-                                                </div>
-                                                <div className="blog">
-                                                    <div className="title"><a href="#"> Müəllimlər iclası</a></div>
-                                                    <div className="info"><span className="category">Son xəbər </span> |
-                                                    <span className="time">15:00</span></div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <div className="hidden"></div>
-                                    </div>
-                                </div>
+                            <LastPosts/>
                                 <div className="notepad">
                                     <textarea name="" id=""
                                         placeholder="Xatırlamaq istədiyiniz qeydi bura yazın…"></textarea>
