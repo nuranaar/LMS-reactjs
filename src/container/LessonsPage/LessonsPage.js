@@ -10,6 +10,8 @@ import LessonsSegmentation from '../../component/LessonsSegmentation/LessonsSegm
 import Icon from '@mdi/react';
 import { mdiChevronLeft, mdiChevronRight } from '@mdi/js';
 import LastPosts from '../LastPosts/LastPosts';
+import PercentageChart from '../../component/StatisticCards/PercentageChart';
+import InfoCard from '../../component/StatisticCards/InfoCard';
 
 
 export default class LessonsPage extends React.Component {
@@ -93,67 +95,21 @@ export default class LessonsPage extends React.Component {
                             })}
                             <div className="col-md-8">
                                 <div className="statistics-list row">
-                                    <div className="col-md-6 ">
-                                        <div className="statistic-item statistic-chart">
-                                            <div className="row align-items-center">
-                                                <div className="col-7">
-                                                    <div className="title">Ümumi dərs saatı</div>
-                                                    <p className="info">300</p>
-                                                    <div className="title mt-5 mb-1">Keçirilən dərs saatı</div>
-                                                    <p className="info">210</p>
-                                                </div>
-                                                <div className="col-5 ml">
-                                                    <div className="chart"></div>
-                                                    <p className="chart-info">Keçirilən dərs saatı</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6 ">
-                                        <div className="statistic-item statistic-chart">
-                                            <div className="row align-items-center">
-                                                <div className="col-7">
-                                                    <div className="title">Verilən tapşırıq sayı</div>
-                                                    <p className="info">34</p>
-                                                    <div className="title mt-5 mb-1">Edilən tapşırıq sayı</div>
-                                                    <p className="info">27</p>
-                                                </div>
-                                                <div className="col-5 ml">
-                                                    <div className="chart"></div>
-                                                    <p className="chart-info">Toplam tapşırıq balı</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6 ">
-                                        <div className="statistic-item statistic-info">
-                                            <div className="row align-items-center">
-                                                <div className="col-7">
-                                                    <div className="title">Davamiyyət</div>
-                                                </div>
-                                                <div className="col-5 ml">
-                                                    <p className="main-info">80%</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6 ">
-                                        <div className="statistic-item statistic-info">
-                                            <div className="row align-items-center">
-                                                <div className="col-7">
-                                                    <div className="title">Keçirilən layihə sayı</div>
-                                                </div>
-                                                <div className="col-5 ml">
-                                                    <p className="main-info">1/3</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div className="col-md-6">
+                                        <PercentageChart totalTitle='Ümumi dərs saatı' totalValue={300} doneTitle='Keçirilən dərs saatı' doneValue={210} chart='Keçirilən dərs saatı' />
 
+                                        <InfoCard title='Davamiyyət' value='80%' />
+
+                                    </div>
+                                    <div className="col-md-6">
+                                        <PercentageChart totalTitle='Verilən tapşırıq sayı' totalValue={34} doneTitle='Edilən tapşırıq sayı' doneValue={27} chart='Toplam tapşırıq balı' />
+
+                                        <InfoCard title='Keçirilən layihə sayı' value='1/3' />
+                                    </div>
                                 </div>
                             </div>
                             <div className="col-md-4">
-                            <LastPosts/>
+                                <LastPosts />
                                 <div className="notepad">
                                     <textarea name="" id=""
                                         placeholder="Xatırlamaq istədiyiniz qeydi bura yazın…"></textarea>
