@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pie, Doughnut } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 
 export default class PercentageChart extends React.Component {
     state = {
@@ -17,7 +17,7 @@ export default class PercentageChart extends React.Component {
         }
     }
     render() {
-        let percent= Math.round((this.props.doneValue *100)/ this.props.totalValue);
+        let percent = Math.round((this.props.doneValue * 100) / this.props.totalValue);
         return (
             <div className="col-md-12 ">
                 <div className="statistic-item statistic-chart">
@@ -29,13 +29,13 @@ export default class PercentageChart extends React.Component {
                             <p className="info">{this.props.doneValue}</p>
                         </div>
                         <div className="col-5 ml">
-                            <div className="chart" > 
+                            <div className="chart" >
                                 <Doughnut
-                                width={100}
-                                height={100}
+                                    width={100}
+                                    height={100}
                                     data={this.state.data}
                                     options={{ maintainAspectRatio: false }} />
-                                    <p className='percent'>{percent}%</p>
+                                <p className='percent'>{percent}%</p>
                             </div>
 
                             <p className="chart-info">{this.props.chart}</p>

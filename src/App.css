@@ -1053,13 +1053,13 @@ video {
 
 #menu {
   background-color: #fff;
+  min-height: calc(100vh - 160px);
 }
 
 #menu .menu-cards {
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
   align-self: center;
-  margin: 65px auto;
 }
 
 #menu .menu-cards .card {
@@ -1217,7 +1217,7 @@ nav.menu-bar .nav-list {
   overflow-y: auto;
   overflow-x: hidden;
 }
-nav.menu-bar .nav-list::-webkit-scrollbar{
+nav.menu-bar .nav-list::-webkit-scrollbar {
   width: 0;
 }
 nav.menu-bar .nav-list .nav-item {
@@ -1584,17 +1584,17 @@ nav.menu-bar .nav-list .nav-item .nav-text {
 }
 
 .page-body #statistics .statistics-list .statistic-item {
-  padding: 25px 20px 20px;
-  padding-right: 7px;
+  padding: 25px 24px 20px;
+  padding-right: 5px;
   border-radius: 6px;
   background-color: #f8f8f8;
-  margin: 15px;
+  margin: 30px 15px;
   -webkit-transition: margin 0.2s;
   transition: margin 0.2s;
 }
 
 .page-body #statistics .statistics-list .statistic-item .title {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #656565;
 }
@@ -1605,13 +1605,13 @@ nav.menu-bar .nav-list .nav-item .nav-text {
   padding: 5px 0;
 }
 
-.page-body #statistics .statistics-list .statistic-item .chart .percent {
+.page-body #statistics .statistics-list .chart .percent {
   font-size: 26px;
   font-weight: bold;
   position: absolute;
   width: 100px;
-    text-align: center;
-    top: 43%;
+  text-align: center;
+  top: 43%;
 }
 
 .page-body #statistics .statistics-list .statistic-item .chart {
@@ -1622,6 +1622,13 @@ nav.menu-bar .nav-list .nav-item .nav-text {
   margin-left: 8px;
 }
 
+.page-body #statistics .statistics-list .chart.multiply-chart {
+  bottom: 14px;
+}
+.page-body #statistics .statistics-list .chart.multiply-chart .percent {
+  top: 47%;
+  left: 5%;
+}
 .page-body #statistics .statistics-list .statistic-item .main-info {
   font-size: 30px;
   font-weight: bold;
@@ -1634,6 +1641,9 @@ nav.menu-bar .nav-list .nav-item .nav-text {
   color: #a0a0a0;
   position: relative;
   bottom: 3px;
+}
+.page-body #statistics .statistics-list .statistic-item.statistic-status .chart-info {
+  margin-left: 10px;
 }
 
 .page-body #statistics .statistics-list .statistic-item.statistic-status .status-list .status {
@@ -1833,14 +1843,8 @@ nav.menu-bar .nav-list .nav-item .nav-text {
 
 .statistic-card {
   min-height: 123px;
-  max-height: 123px;
   overflow: hidden;
 }
-
-.statistic-card.groups-date {
-  min-height: 190px;
-}
-
 .statistic-card .card-head {
   position: relative;
 }
@@ -1857,7 +1861,7 @@ nav.menu-bar .nav-list .nav-item .nav-text {
   content: "";
   width: 114%;
   height: 2px;
-  left: -24px;
+  right: -5px;
   bottom: 0;
   background-color: #f2f2f2;
 }
@@ -1869,15 +1873,30 @@ nav.menu-bar .nav-list .nav-item .nav-text {
   width: 15px;
 }
 
-.statistic-card .card-head .calendar img {
-  width: 100%;
+.statistic-card .card-head .calendar svg.mdi {
+  fill: #3a3a3a;
 }
 
 .statistic-card .card-body {
-  padding-top: 15px;
-  height: 60px;
+  margin-top: 15px;
+  min-height: 60px;
+  max-height: 190px;
+  overflow-y: auto;
 }
 
+.statistic-card .card-body::-webkit-scrollbar {
+  width: 3px;
+  background-color: #d8d8d8;
+}
+
+.statistic-card .card-body::-webkit-scrollbar-track {
+  background-color: #f8f8f8;
+}
+
+.statistic-card .card-body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #d8d8d8;
+}
 .statistic-card .card-body .card-info {
   font-size: 14px;
   font-weight: 600;
@@ -1892,7 +1911,7 @@ nav.menu-bar .nav-list .nav-item .nav-text {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding-bottom: 8px;
+  margin: 14px 0;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -1900,7 +1919,7 @@ nav.menu-bar .nav-list .nav-item .nav-text {
 
 .statistic-card .card-body .card-list .card-item .date {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.57;
   color: #a0a0a0;
   padding-right: 22px;

@@ -1,0 +1,27 @@
+.programm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 17px 0;
+    margin-right: 20px;
+    border-bottom: 2px solid #f2f2f2;
+    &:last-child{
+        border-bottom: none;
+    }
+  p {
+    font-size: 16px;
+    font-weight: 600;
+    color: #656565;
+  }
+  svg.mdi{
+      fill:#3a3a3a;
+  }
+}
+.groups{
+    background-color: red;
+    height: 0;
+    width: 100%;
+    &.active{
+        height: 50px;
+    }
+}
