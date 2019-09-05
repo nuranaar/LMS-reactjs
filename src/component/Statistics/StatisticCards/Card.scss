@@ -1,27 +1,56 @@
 .programm {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 17px 0;
-    margin-right: 20px;
-    border-bottom: 2px solid #f2f2f2;
-    &:last-child{
-        border-bottom: none;
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 0;
+
   p {
     font-size: 16px;
     font-weight: 600;
     color: #656565;
   }
-  svg.mdi{
-      fill:#3a3a3a;
+  svg.mdi {
+    fill: #3a3a3a;
   }
 }
-.groups{
-    background-color: red;
-    height: 0;
-    width: 100%;
-    &.active{
-        height: 50px;
+.groups {
+    list-style: none;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  .group {
+    font-size: 14px;
+    font-weight: 600;
+    color: #a0a0a0;
+    background-color: #f2f2f2;
+    border-radius: 3px;
+    padding: 6px 0;
+    width: 75px;
+    text-align: center;
+    transition: all 0.3s;
+    line-height: 1.57;
+    margin: 4px 2px;
+    &:hover {
+      color: #3a3a3a;
+      background-color: #dfdfdf;
     }
+  }
+}
+.accordion__button {
+  outline: none;
+}
+.accordion__item {
+  border-bottom: 1px solid #f2f2f2;
+  margin-right: 20px;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+.accordion__panel {
+    padding: 18px 0;
+    border-top: 1px solid #f2f2f2;
+}
+.statistic-card .card-body{
+    max-height: 350px;
 }

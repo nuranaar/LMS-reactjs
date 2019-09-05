@@ -1843,7 +1843,6 @@ nav.menu-bar .nav-list .nav-item .nav-text {
 
 .statistic-card {
   min-height: 123px;
-  overflow: hidden;
 }
 .statistic-card .card-head {
   position: relative;
@@ -1856,12 +1855,12 @@ nav.menu-bar .nav-list .nav-item .nav-text {
   position: relative;
 }
 
-.statistic-card .card-head .card-title::after {
+.statistic-card .card-head::after {
   position: absolute;
   content: "";
-  width: 114%;
-  height: 2px;
-  right: -5px;
+  width: 108%;
+  height: 1px;
+  right: -3px;
   bottom: 0;
   background-color: #f2f2f2;
 }

@@ -1,6 +1,5 @@
 import React from 'react'
-import Icon from '@mdi/react';
-import { mdiCalendarMonth } from '@mdi/js';
+import DatePicker from '../../UI/Datepicker/DatePicker';
 
 export default function GroupsCard(props) {
     return (
@@ -8,7 +7,7 @@ export default function GroupsCard(props) {
             <div className="statistic-item statistic-card groups-date">
                 <div className="card-head">
                     <div className="card-title">{props.title}</div>
-                    <div className="calendar icon"><Icon path={mdiCalendarMonth} size={.7} className='mdi' /></div>
+                    <DatePicker/>
                 </div>
                 <div className="card-body">
                     <ul className="card-list">
