@@ -1,10 +1,120 @@
-.react-datepicker__month-wrapper [class*="in-range"] {
-  background-color: #e9f7fe;
-  color: #3a3a3a;
+// [class*="monthPicker"] {
+//   display: flex;
+//   width: 300px;
+//   [class*="month-text"] {
+//     background-color: #fafafa;
+//     border-radius: 0;
+//     width: 59px;
+//     height: 59px;
+//     line-height: 59px;
+//     &[class*="in-range"] {
+//       background-color: #e9f7fe;
+//       color: $login_color;
+//     }
+//     &[class*="range-start"],
+//     &[class*="range-end"] {
+//       background-color: #b2e1fa;
+//     }
+//   }
+// }
+@import "../../../assets/css/ScssPartials/variable";
+
+* {
+  outline: none;
 }
-.react-datepicker__month-wrapper [class*="range-start"],
-.react-datepicker__month-wrapper [class*="range-end"] {
-  background-color: #b2e1fa;
+[class*="day-names"] {
+  margin: 0 auto;
+  [class*="day-name"] {
+    visibility: hidden;
+    position: relative;
+    &::after {
+      visibility: visible;
+      position: absolute;
+      left: 0px;
+      width: 27px;
+    }
+    &:nth-child(1) {
+      &::after {
+        content: "Be";
+      }
+    }
+    &:nth-child(2) {
+      &::after {
+        content: "Ça";
+      }
+    }
+    &:nth-child(3) {
+      &::after {
+        content: "Çr";
+      }
+    }
+    &:nth-child(4) {
+      &::after {
+        content: "Ca";
+      }
+    }
+    &:nth-child(5) {
+      &::after {
+        content: "Cm";
+      }
+    }
+    &:nth-child(6) {
+      &::after {
+        content: "Şə";
+      }
+    }
+    &:nth-child(7) {
+      &::after {
+        content: "Bz";
+      }
+    }
+    font-size: 12px;
+    font-weight: bold;
+    color: $undefined;
+    margin: 7.5px 7.5px;
+  }
+}
+[class*="month"] {
+  margin-bottom: 0;
+}
+[class*="week"] {
+  width: 300px;
+
+  [class*="day"] {
+    // background-color: #fafafa;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    transition: all 0.2s;
+    font-size: 14px;
+    margin: 0 7px 14px;
+    font-weight: 700;
+
+    &[class*="in-range"] {
+      background-color: $in_range;
+      color: $login_color;
+    }
+    &[class*="day--outside-month"] {
+      color: $undefined;
+    }
+    &[class*="day--today"] {
+      color: $main_color;
+      background-color: #fff;
+    }
+    &:hover {
+      background-color: $hover;
+    }
+    &[class*="range-start"],
+    &[class*="range-end"] {
+      background-color: $range;
+    }
+    &[class*="disabled"] {
+      background-color: #fff;
+      color: #dfdfdf;
+    }
+  }
 }
 #date_picker {
   display: none;
@@ -13,16 +123,22 @@
   width: max-content;
   box-shadow: 0px -2px 10px #00000030;
   border-radius: 6px;
-  right: -150px;
+  top: -11px !important;
+  left: -147px !important;
   .react-datepicker {
     border: none;
     border-radius: 6px;
     [class*="datepicker__header"] {
       background-color: #fff;
       line-height: 30px;
-      font-size: 16px;
       min-width: 300px;
       border: none;
+      select {
+        border: none;
+        font-size: 16px;
+        font-weight: 800;
+        margin: 0 10px;
+      }
     }
     [class*="triangle"] {
       border-bottom-color: #fff;
@@ -31,23 +147,36 @@
         border: none;
       }
     }
+
     [class*="datepicker__navigation"] {
       border: 2px solid transparent;
-      border-left-color: #3a3a3a;
-      border-bottom-color: #3a3a3a;
+      border-left-color: $login_color;
+      border-bottom-color: $login_color;
       //   border-right-color: transparent;
       border-radius: 3px;
+      background-color: #fff;
       height: 9px;
       width: 9px;
-      top: 16.5%;
+      top: 20px;
+      padding: 0;
       &[class*="previous"] {
         transform: rotate(45deg);
-        left: 35%;
+        left: 20%;
       }
       &[class*="next"] {
         transform: rotate(-135deg);
-        right: 35%;
+        right: 20%;
       }
     }
+  }
+}
+[class*="today-button"] {
+  background: #fff;
+  border-color: #f2f2f2;
+  padding: 16px 0;
+  border-radius: 0 0 6px 6px;
+  transition: all 0.3s;
+  &:hover {
+    color: $main_color;
   }
 }
