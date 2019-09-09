@@ -1,5 +1,5 @@
 import React from 'react'
-import DatePicker from '../../UI/Datepicker/DatePicker';
+import DatePickerManager from '../../UI/Datepicker/DatePickerManager';
 
 export default function GroupsCard(props) {
     return (
@@ -7,7 +7,7 @@ export default function GroupsCard(props) {
             <div className="statistic-item statistic-card groups-date">
                 <div className="card-head">
                     <div className="card-title">{props.title}</div>
-                    <DatePicker/>
+                    <DatePickerManager id={props.title}/>
                 </div>
                 <div className="card-body">
                     <ul className="card-list">

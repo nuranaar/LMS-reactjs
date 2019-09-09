@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import d from '../../assets/img/study/D.png'
 import book from '../../assets/img/study/hardbound-book-variant.png'
 import p from '../../assets/img/study/P.png'
@@ -93,8 +92,8 @@ export default class LessonsPage extends React.Component {
                             })}
                             <div className="col-md-8">
                                 {/* <StudentStatistics/> */}
-                                {/* <TeacherStatistic /> */}
-                                <ManagerStatistic />
+                                <TeacherStatistic />
+                                {/* <ManagerStatistic /> */}
                             </div>
                             <div className="col-md-4">
                                 <LastPosts />

@@ -6,7 +6,7 @@ import Icon from '@mdi/react';
 import { mdiCalendarMonth } from '@mdi/js';
 import { getYear } from 'date-fns/esm';
 import { getMonth } from 'date-fns';
-import { registerLocale, setDefaultLocale } from "react-datepicker";
+import { registerLocale } from "react-datepicker";
 import ru from 'date-fns/locale/ru';
 registerLocale('ru', ru)
 
@@ -14,20 +14,11 @@ const years = [];
 for (let i = 2019; i < getYear(new Date()) + 3; i++) {
     years.push(i);
 }
-const locale = {
-    name: 'ko',
-    weekdays: 'Bazarertəsi, Çərşənbəaxşamı, Çərşənbəaxşamı, Cümə, Cümə,Şənbə, Bazar'.split(', '),
-    localize: {
-        day: '1,2,3,4,5,6,7'.split(',')
-    },
-    formatLong: new Date()
-};
-export default class Datepicker extends React.Component {
+export default class DatePickerManager extends React.Component {
     state = {
-        startDate: new Date(),
+        startDate: '',
         endDate: '',
         start_select: false,
-        // years: getYear(new Date()),
         years: years,
         months: [
             'Yanvar',
@@ -45,28 +36,47 @@ export default class Datepicker extends React.Component {
         ]
     };
 
-    handleChange = date => {
-        this.setState({
-            startDate: date,
-            endDate: date
-        });
-    };
     setStartDate = (date) => {
         this.setState({
             startDate: date,
-            start_select: true
+            endDate: ''
         })
     }
     setEndDate = (date) => {
         this.setState({
-            endDate: date,
-            start_select: false
+            endDate: date
         })
     }
+    delEndDate = () => {
+        this.setState({
+            endDate: ''
+        })
+    }
+
+    DateChanged = (date, e) => {
+        if (e.target.classList.contains("react-datepicker__today-button")) {
+            this.setState({
+                startDate: null,
+                endDate: null
+            });
+            return;
+        }
+        if (e.target.classList.contains("react-datepicker__day--range-end")) {
+            this.setState({
+                endDate: ''
+            });
+            return;
+        }
+
+        (this.state.startDate === '' || (this.state.startDate !== '' && this.state.endDate !== '')) ? this.setStartDate(date) :
+            (this.state.startDate > date) ? this.setStartDate(date) 
+                : this.setEndDate(date);
+    }
+
     render() {
         return (
             <div>
-                <label htmlFor='date_picker' className="calendar icon"><Icon path={mdiCalendarMonth} size={.7} className='mdi' />
+                <label htmlFor={this.props.id} className="calendar icon"><Icon path={mdiCalendarMonth} size={.7} className='mdi' />
 
                     <DatePicker
                         renderCustomHeader={({
@@ -78,13 +88,7 @@ export default class Datepicker extends React.Component {
                             prevMonthButtonDisabled,
                             nextMonthButtonDisabled
                         }) => (
-                                <div
-                                // style={{
-                                //     margin: 10,
-                                //     display: "flex",
-                                //     justifyContent: "center"
-                                // }}
-                                >
+                                <div>
                                     <button onClick={decreaseMonth} disabled={prevMonthButtonDisabled} className='datepicker__navigation previous'>
 
                                     </button>
@@ -118,27 +122,22 @@ export default class Datepicker extends React.Component {
                             )}
 
 
-                        id='date_picker'
+                        id={this.props.id}
                         selected={this.state.startDate}
-                        onChange={date => (this.state.startDate > date) ? this.setStartDate(date) :
-                            (this.state.endDate < date) ? this.setEndDate(date) :
-                                (this.state.start_select) ? this.setEndDate(date) : this.setStartDate(date)
-                        }
+                        onChange={this.DateChanged}
                         startDate={this.state.startDate}
                         endDate={this.state.endDate}
                         dateFormat="MM/yyyy"
-                        // locale={locale}
                         locale='ru'
-                        // showMonthYearPicker
-                        shouldCloseOnSelect={false}
-                        todayButton="Bugün"
+                        // shouldCloseOnSelect={false}
+                        todayButton="Intervalı sil"
                         minDate={new Date()}
                         showDisabledMonthNavigation
 
                     // inline
                     />
                 </label>
-              
+
             </div>
 
         )

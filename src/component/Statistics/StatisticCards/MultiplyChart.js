@@ -6,7 +6,7 @@ export default class MultiplyChart extends Component {
         data: {
             datasets: [{
                 data: [2, 2, 2, 2, 2],
-                borderColor: '#fff',
+                borderColor: '#f8f8f8',
                 backgroundColor: [
                     '#0286cd',
                     '#00a659',
@@ -21,7 +21,7 @@ export default class MultiplyChart extends Component {
                     '#873996',
                     '#e9584f'
                 ],
-                hoverBorderColor: '#fff',
+                hoverBorderColor: '#f8f8f8',
                 borderWidth: 2,
             }]
         },

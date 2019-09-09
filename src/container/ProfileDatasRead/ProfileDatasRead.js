@@ -57,9 +57,10 @@ export default class ProfileDatasRead extends React.Component {
         }],
         currentRol: 'admin'
     }
+
     render() {
         return (
-            <div className="page-body" id={[this.state.currentRol,"-profile"].join("")}>
+            <div className="page-body" id={[this.state.currentRol, "-profile"].join("")}>
                 <div className="col-lg-12">
                     <div className="body" id="profile">
                         <div className="body-head d-flex justify-content-between">

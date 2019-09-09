@@ -89,7 +89,7 @@ export default class ProfileDataEdit extends React.Component {
             data_target = "send-note-change";
         }
         return (
-            <div className="page-body" id={[this.state.currentRol,"-profile"].join("")}>
+            <div className="page-body" id={[this.state.currentRol, "-profile"].join("")}>
                 <div className="col-lg-12">
                     <div className="body" id="profile-edit">
                         <div className="body-head d-flex justify-content-between">

@@ -1,6 +1,5 @@
 import React from 'react'
-import Icon from '@mdi/react';
-import { mdiCalendarMonth } from '@mdi/js';
+import DatePickerTeacher from '../../UI/Datepicker/DatePickerTeacher';
 
 export default function DayTheme(props) {
     return (
@@ -8,7 +7,7 @@ export default function DayTheme(props) {
             <div className="statistic-item statistic-card">
                 <div className="card-head">
                     <div className="card-title">Günün mövzusu</div>
-                    <div className="calendar icon"><Icon path={mdiCalendarMonth} size={.7} className='mdi' /></div>
+                    <DatePickerTeacher id='Günün mövzusu' />
                 </div>
                 <div className="card-body">
                     <div className="title">{props.theme}</div>

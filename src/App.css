@@ -1660,7 +1660,7 @@ nav.menu-bar .nav-list .nav-item .nav-text {
 }
 
 .page-body #statistics .statistics-list .statistic-item.statistic-status .status-list .status .sum {
-  margin-right: 15px;
+  margin: auto;
   font-size: 16px;
   font-weight: 800;
 }
@@ -1869,11 +1869,16 @@ nav.menu-bar .nav-list .nav-item .nav-text {
   position: absolute;
   right: 25px;
   top: 0;
-  width: 15px;
+  width: max-content;
+  font-size: 14px;
+  font-weight: 600;
+  align-items: center;
+  display: flex;
 }
 
 .statistic-card .card-head .calendar svg.mdi {
   fill: #3a3a3a;
+  padding-left: 4px;
 }
 
 .statistic-card .card-body {
