@@ -22,11 +22,13 @@ export default class Users extends Component {
                                 <div className='filter-list'>
                                     <ul>
                                         <li>
-                                            <input type='checkbox' style={{ 'display': 'none' }} />
-                                            <div className='checkbox'>
-                                                <Icon className='mdi' path={mdiCheckBold} size={.5} />
-                                            </div>
-                                            Hamısı
+                                            <label htmlFor='check'>
+                                                <input type='checkbox' id='check' style={{ 'display': 'none' }} />
+                                                <label htmlFor='check' className='checkbox'>
+                                                    <Icon className='mdi' path={mdiCheckBold} size={.5} />
+                                                </label>
+                                                Hamısı
+                                            </label>
                                         </li>
                                     </ul>
                                 </div>
