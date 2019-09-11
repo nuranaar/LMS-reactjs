@@ -1,0 +1,95 @@
+@import '../../../../assets/css/ScssPartials/variable';
+@import '../../../../assets/css/ScssPartials/common';
+
+.modal-desc {
+    font-size: 16px;
+    font-weight: 600;
+    color: $undefined;
+    padding: 40px 30px;
+}
+
+.popup-header {
+    text-align: left !important;
+
+}
+
+.popup-body {
+    padding: 24px 30px 50px;
+    position: relative;
+
+    .input-add {
+        display: flex;
+        align-items: center;
+
+        svg.mdi {
+            fill: $undefined;
+            margin-top: 16px;
+            margin-left: 18px;
+            cursor: pointer;
+        }
+    }
+
+    input {
+        width: 100%;
+        padding: 16px;
+        border-radius: 4px;
+        border: solid 1px #f2f2f2;
+        box-sizing: border-box;
+        margin-top: 16px;
+
+        &::placeholder {
+            color: $undefined;
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+
+    .add-user-input {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 17px;
+        padding: 0 30px;
+        box-sizing: border-box;
+        justify-content: flex-end;
+
+        svg.mdi {
+            fill: $main_color;
+            border: 1px solid $main_color;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        P {
+            font-size: 14px;
+            font-weight: 500;
+            color: $main_color;
+        }
+    }
+}
+
+.popup {
+    width: 30%;
+}
+
+.buttons {
+    margin: 0 30px 50px;
+
+    .btn {
+        border: 1px solid $main_color;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 16px 65px;
+        box-sizing: border-box;
+        margin: 0;
+
+        &.btn-add-user {
+            width: 100%;
+            color: #fff;
+            background-color: $main_color;
+        }
+    }
+}

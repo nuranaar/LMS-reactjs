@@ -6,7 +6,6 @@ import userPhoto from '../../../assets/img/users/user.jpg';
 import oldID from '../../../assets/img/kohne shexsiyyet vesiqesi.jpg';
 import newID from '../../../assets/img/yeni shexsiyyet.jpg';
 import thanks from '../../../assets/img/loginimg/thanks image.jpg';
-import '';
 
 
 export default function Modal(props) {

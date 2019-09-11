@@ -1,6 +1,7 @@
 import React from 'react'
 import Icon from '@mdi/react';
 import { mdiCheckBold } from '@mdi/js';
+
 export default function FilterItem(props) {
     return (
         <li className={['filter-item', props.addClass].join(' ')}  >
