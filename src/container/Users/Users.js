@@ -1,12 +1,50 @@
 import React, { Component } from 'react';
 import './Users.scss';
 import Icon from '@mdi/react';
-import { mdiMagnify, mdiFilterVariant, mdiPencil, mdiDelete, mdiCheckBold } from '@mdi/js';
+import { mdiMagnify, mdiFilterVariant, mdiPencil, mdiDelete } from '@mdi/js';
 import userpp from '../../assets/img/users/images.jfif';
 import Button from '../../component/UI/Button/Button';
+import FilterItem from '../../component/FilterItem/FilterItem';
 
 
 export default class Users extends Component {
+    state = {
+        showFilters: false,
+        filters: [
+            {
+                key: 1,
+                text: 'Hamisi',
+                active: false
+
+            },
+            {
+                key: 2,
+                text: 'Active',
+                active: false
+
+            },
+            {
+                key: 3,
+                text: 'Deactive',
+                active: false
+
+            }
+        ],
+    }
+    filterSelectHandler = (key) => {
+        let filters = [...this.state.filters]
+        let activeFilter = filters.filter(filter => filter.key === key);
+        activeFilter.map(active => active.active = !active.active);
+        this.setState({
+            filters: filters
+        })
+    }
+    filterClickHandler = () => {
+        let isOpen = !this.state.showFilters;
+        this.setState({
+            showFilters: isOpen
+        })
+    }
     render() {
         return (
             <div className="page-body">
@@ -18,18 +56,12 @@ export default class Users extends Component {
                                 <input className='search-input' type='text' placeholder='Ad və ya emailə görə axtar' />
                                 <Icon path={mdiMagnify} size={.8} className='mdi' />
                             </div>
-                            <div className='filter'><Icon path={mdiFilterVariant} size={.8} className='mdi' />
-                                <div className='filter-list'>
+                            <div className='filter' onClick={this.filterClickHandler}><Icon path={mdiFilterVariant} size={.8} className='mdi' />
+                                <div className={['filter-list', this.state.showFilters?'show':''].join(' ')}>
                                     <ul>
-                                        <li>
-                                            <label htmlFor='check'>
-                                                <input type='checkbox' id='check' style={{ 'display': 'none' }} />
-                                                <label htmlFor='check' className='checkbox'>
-                                                    <Icon className='mdi' path={mdiCheckBold} size={.5} />
-                                                </label>
-                                                Hamısı
-                                            </label>
-                                        </li>
+                                        {this.state.filters.map(filter => {
+                                            return <FilterItem change={() => this.filterSelectHandler(filter.key)} addClass={filter.active ? 'active' : ''} text={filter.text} key={filter.key} />
+                                        })}
                                     </ul>
                                 </div>
                             </div>
