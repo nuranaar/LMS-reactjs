@@ -5,6 +5,7 @@ import { mdiMagnify, mdiFilterVariant, mdiPencil, mdiDelete } from '@mdi/js';
 import userpp from '../../assets/img/users/images.jfif';
 import Button from '../../component/UI/Button/Button';
 import FilterItem from '../../component/FilterItem/FilterItem';
+import UserDeleteConfirmModal from '../../component/UI/Modal/UserDeleteConfirmModal/UserDeleteConfirmModal';
 
 
 export default class Users extends Component {
@@ -19,17 +20,41 @@ export default class Users extends Component {
             },
             {
                 key: 2,
-                text: 'Active',
+                text: 'Müəllim',
                 active: false
 
             },
             {
                 key: 3,
+                text: 'Menecer',
+                active: false
+
+            },
+            {
+                key: 4,
+                text: 'Tələbə',
+                active: false
+            },
+            {
+                key: 5,
+                text: 'Admin',
+                active: false
+            },
+            {
+                key: 6,
+                text: 'Active',
+                active: false
+
+            },
+            {
+                key: 7,
                 text: 'Deactive',
                 active: false
 
             }
         ],
+        showDeleteConfirm: false,
+        showAddUser: false,
     }
     filterSelectHandler = (key) => {
         let filters = [...this.state.filters]
@@ -45,7 +70,28 @@ export default class Users extends Component {
             showFilters: isOpen
         })
     }
+    editClickHandler = () => {
+
+    }
+    deleteClickHandler = () => {
+        this.setState({
+            showDeleteConfirm: true
+        })
+    }
+    closeDeleteConfirmModal = () => {
+        this.setState({
+            showDeleteConfirm: false
+        })
+    }
     render() {
+        let deleteConfirmModal;
+        if (this.state.showDeleteConfirm) {
+            deleteConfirmModal = <UserDeleteConfirmModal
+                isOpen={this.state.showDeleteConfirm}
+                closeModal={this.closeDeleteConfirmModal}
+                id='delete_confirm_modal'
+            />
+        }
         return (
             <div className="page-body">
                 <div className="col-lg-12">
@@ -56,8 +102,8 @@ export default class Users extends Component {
                                 <input className='search-input' type='text' placeholder='Ad və ya emailə görə axtar' />
                                 <Icon path={mdiMagnify} size={.8} className='mdi' />
                             </div>
-                            <div className='filter' onClick={this.filterClickHandler}><Icon path={mdiFilterVariant} size={.8} className='mdi' />
-                                <div className={['filter-list', this.state.showFilters?'show':''].join(' ')}>
+                            <div className='filter' ><Icon onClick={this.filterClickHandler} path={mdiFilterVariant} size={.8} className='mdi' />
+                                <div className={['filter-list', this.state.showFilters ? 'show' : ''].join(' ')}>
                                     <ul>
                                         {this.state.filters.map(filter => {
                                             return <FilterItem change={() => this.filterSelectHandler(filter.key)} addClass={filter.active ? 'active' : ''} text={filter.text} key={filter.key} />
@@ -89,11 +135,11 @@ export default class Users extends Component {
                                         <td><div className='status active'></div></td>
                                         <td>
                                             <div className="operations">
-                                                <div className='edit'>
+                                                <div className='edit' onClick={this.editClickHandler}>
                                                     <Icon path={mdiPencil} size={.8} className='mdi' />
                                                     <div className='tooltip'>Düzəliş et</div>
                                                 </div>
-                                                <div className='delete'>
+                                                <div className='delete' onClick={this.deleteClickHandler}>
                                                     <Icon path={mdiDelete} size={.8} className='mdi' />
                                                     <div className='tooltip'>Sil</div>
 
@@ -128,6 +174,7 @@ export default class Users extends Component {
                         </div>
                     </div>
                 </div>
+      {deleteConfirmModal}
             </div>
         )
     }
