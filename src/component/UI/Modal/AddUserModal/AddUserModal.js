@@ -7,15 +7,28 @@ import { mdiPlus, mdiClose } from '@mdi/js';
 
 export default class AddUserModal extends React.Component {
     state = {
-        count: 1
+        count: 1,
+        inputs: [{ id: 1, input: < input type='text' placeholder='numunə@.code.edu.az' /> }]
     }
     addInputClickHanler = () => {
+        let input;
+        let inputs = [...this.state.inputs];
         let count = ++this.state.count;
+        for (let i = count; i <= count; i++) {
+            let id = i;
+            input = <input type='text' placeholder='numunə@.code.edu.az' />;
+            inputs.push({ id, input });
+            console.log(inputs);
+        }
         this.setState({
-            count: count
+            count: count,
+            inputs: inputs
         })
     }
-    deleteInputClickHanler = () => {
+    deleteInputClickHanler = (e) => {
+        console.log(e.target.parentNode.dataset.id);
+        const inputs = this.state.inputs.filter(input => item.id !== itemId);
+
         let count = --this.state.count;
         this.setState({
             count: count
@@ -24,18 +37,20 @@ export default class AddUserModal extends React.Component {
 
     render() {
         // let input = <input type='text' placeholder='numunə@.code.edu.az' />;
-        let input;
+        // let input;
         let icon = '';
-        let inputs = [];
+        // let inputs = [...this.state.inputs];
         if (this.state.count > 1) {
-            icon = <Icon path={mdiClose} size={.8} className='mdi' onClick={this.deleteInputClickHanler} />
+            icon = <Icon path={mdiClose} size={.8} className='mdi' />
+            //e.target prev elem id
         }
-        for (let i = 1; i <= this.state.count; i++) {
-            input = <div key={i} className='input-add'> <input type='text' placeholder='numunə@.code.edu.az' />
-                {icon}
-            </div>;
-            inputs.push(input);
-        }
+        // for (let i = 1; i <= this.state.count; i++) {
+        //     let id = i;
+        //     input = <input type='text' placeholder='numunə@.code.edu.az' />;
+        //     inputs.push({ id, input });
+        //     console.log(inputs);
+        // }
+
         return (
             <div className={["popups", this.props.isOpen ? "open" : ""].join(" ")} id={this.props.id}>
                 <div onClick={this.props.closeModal} className="popup-area"></div>
@@ -47,7 +62,7 @@ export default class AddUserModal extends React.Component {
                         <p>İstifadəçi əlavə et</p>
                     </div>
                     <div className='popup-body'>
-                        {inputs.map(input => input)}
+                        {this.state.inputs.map(input => <div key={input.id} data-target={input.id} className='input-add'> {input.input}<div data-id={input.id} onClick={this.deleteInputClickHanler}>{icon}</div></div>)}
                         <div className='add-user-input' onClick={this.addInputClickHanler}>
                             <Icon path={mdiPlus} size={.4} className='mdi'></Icon>
                             <p>İstifadəçi əlavə et</p>

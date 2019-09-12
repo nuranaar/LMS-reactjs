@@ -15,10 +15,6 @@
     }
 }
 
-.popup {
-    width: max-content;
-}
-
 .buttons {
     margin: 0 18px 50px;
 
@@ -26,15 +22,16 @@
         border: 1px solid $main_color;
         font-size: 16px;
         font-weight: bold;
-        padding: 16px 65px;
-        margin: 0 12px;
 
         &.btn-cancel {
             background-color: #fff;
             color: $main_color;
+            padding: 16px 52px;
         }
 
         &.btn-confirm {
+            margin-left: 24px;
+            padding: 16px 75px;
             color: #fff;
             background-color: $main_color;
         }
