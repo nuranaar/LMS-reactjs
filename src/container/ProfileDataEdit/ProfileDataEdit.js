@@ -5,6 +5,7 @@ import DataEdit from './DataEdit/DataEdit';
 import Button from '../../component/UI/Button/Button';
 import Modal from '../../component/UI/Modal/Modal';
 import { Link } from 'react-router-dom'
+import RolCheckboxes from '../../component/ProfilePage/RolCheckboxes/RolCheckboxes';
 
 export default class ProfileDataEdit extends React.Component {
     state = {
@@ -58,8 +59,39 @@ export default class ProfileDataEdit extends React.Component {
         }],
         currentRol: 'student',
         showModal: false,
-        dataTarget: null
+        dataTarget: null,
+        roleSegments: [
+            {
+                key: 2,
+                text: 'Müəllim',
+                active: false
+            },
+            {
+                key: 3,
+                text: 'Menecer',
+                active: true
+            },
+            {
+                key: 4,
+                text: 'Tələbə',
+                active: false
+            },
+            {
+                key: 5,
+                text: 'Admin',
+                active: false
+            }
+        ],
     }
+    roleSelectHandler = (key) => {
+        let roles = [...this.state.roleSegments]
+        let activeRole = roles.filter(role => role.key === key);
+        activeRole.map(active => active.active = !active.active);
+        this.setState({
+            roles: roles
+        })
+    }
+
     modalContentHandler = (e) => {
         e.preventDefault();
 
@@ -109,11 +141,22 @@ export default class ProfileDataEdit extends React.Component {
                                     <a className="btn btn-del-photo" href="#">Profil şəklini sil</a>
                                 </div>
                                 <div className="col-lg-9">
-                                    {this.state.rols.filter(rol => rol.name === this.state.currentRol).map(rol => {
-                                        return rol.datas.map(data => {
+                                    {this.state.rols.filter(role => role.name === this.state.currentRol).map(role => {
+                                        return role.datas.map(data => {
                                             return <DataEdit data={data} key={data.id} />
                                         })
                                     })}
+                                    <div className="form-group">
+                                        <div className="label">Rollar</div>
+                                        <div className='roles'>
+                                            <ul >
+                                                {this.state.roleSegments.map(role => {
+                                                    return <RolCheckboxes change={() => this.roleSelectHandler(role.key)} addClass={role.active ? 'active' : ''} text={role.text} key={role.key} />
+                                                })}
+                                            </ul>
+                                        </div>
+                                    </div>
+
                                     <div className="form-btn">
                                         <Link to='/profile'>  <Button class="btn btn-cancel">Ləğv et</Button></Link>
                                         {save_btn}

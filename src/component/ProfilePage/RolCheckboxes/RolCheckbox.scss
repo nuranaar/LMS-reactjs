@@ -1,0 +1,59 @@
+@import "../../../assets/css/ScssPartials/variable";
+
+.form-group {
+    svg.mdi {
+        fill: $text_color;
+        background-color: $input_bg;
+        padding: 8px;
+        border-radius: 6px;
+        margin-left: 16px;
+        border: solid 1px #f2f2f2;
+    }
+
+    .roles {
+        background-color: #fff;
+        box-shadow: $shadow;
+        padding: 7px 10px;
+        border-radius: 5px;
+        padding-left: 0;
+
+        ul {
+            display: flex;
+
+            .role {
+                padding: 7px 15px;
+                padding-left: 0;
+                background-color: #fff;
+                width: 150px;
+                margin: 7px 0;
+                font-size: 14px;
+                font-weight: 500;
+
+                label {
+                    display: flex;
+                    align-items: flex-end;
+                }
+
+                .checkbox {
+                    svg.mdi {
+                        border-radius: 2px;
+                        padding: 0;
+                        background-color: #fff;
+                        fill: #fff;
+                        margin-left: 0%;
+                        margin-right: 10px;
+                    }
+                }
+
+                &.active {
+                    .checkbox {
+                        svg.mdi {
+                            background-color: $main_color;
+                            border-color: $main_color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
