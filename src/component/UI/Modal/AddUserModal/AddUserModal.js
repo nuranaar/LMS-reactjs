@@ -27,29 +27,21 @@ export default class AddUserModal extends React.Component {
     }
     deleteInputClickHanler = (e) => {
         console.log(e.target.parentNode.dataset.id);
-        const inputs = this.state.inputs.filter(input => item.id !== itemId);
-
+        let deletedId = parseInt(e.target.parentNode.dataset.id);
+        let inputs = this.state.inputs.filter(input => input.id !== deletedId);
+        console.log(deletedId, inputs);
         let count = --this.state.count;
         this.setState({
-            count: count
+            count: count,
+            inputs: inputs
         })
     }
 
     render() {
-        // let input = <input type='text' placeholder='numunə@.code.edu.az' />;
-        // let input;
         let icon = '';
-        // let inputs = [...this.state.inputs];
         if (this.state.count > 1) {
             icon = <Icon path={mdiClose} size={.8} className='mdi' />
-            //e.target prev elem id
         }
-        // for (let i = 1; i <= this.state.count; i++) {
-        //     let id = i;
-        //     input = <input type='text' placeholder='numunə@.code.edu.az' />;
-        //     inputs.push({ id, input });
-        //     console.log(inputs);
-        // }
 
         return (
             <div className={["popups", this.props.isOpen ? "open" : ""].join(" ")} id={this.props.id}>
