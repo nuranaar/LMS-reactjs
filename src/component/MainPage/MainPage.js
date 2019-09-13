@@ -7,6 +7,7 @@ import './MainPage.scss'
 import ProfilePage from '../ProfilePage/ProfilePage';
 import LessonsPage from '../../container/LessonsPage/LessonsPage';
 import UserPage from '../UsersPage/UserPage';
+import EditUsersProfile from '../../container/Users/EditUsersProfile/EditUsersProfile';
 
 export default function MainPage(props) {
     return (
@@ -18,7 +19,9 @@ export default function MainPage(props) {
                     <Header />
                     <Route path='/profile' render={() => <ProfilePage />} />
                     <Route path='/lessons' render={() => <LessonsPage />} />
-                    <Route path='/users' render={() => <UserPage />} />
+                    <Route  path='/users' render={() => <UserPage />} />
+                    <Route  path={`/users/:id`} component={EditUsersProfile}  />
+
                 </main>
             </div>
         </React.Fragment>

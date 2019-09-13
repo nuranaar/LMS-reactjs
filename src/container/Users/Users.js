@@ -7,6 +7,8 @@ import Button from '../../component/UI/Button/Button';
 import FilterItem from '../../component/FilterItem/FilterItem';
 import UserDeleteConfirmModal from '../../component/UI/Modal/UserDeleteConfirmModal/UserDeleteConfirmModal';
 import AddUserModal from '../../component/UI/Modal/AddUserModal/AddUserModal';
+import { Route, Link } from 'react-router-dom'
+import EditUsersProfile from './EditUsersProfile/EditUsersProfile';
 
 
 export default class Users extends Component {
@@ -56,6 +58,7 @@ export default class Users extends Component {
         ],
         showDeleteConfirm: false,
         showAddUser: false,
+        selectedForEdit: '',
     }
     filterSelectHandler = (key) => {
         let filters = [...this.state.filters]
@@ -71,8 +74,11 @@ export default class Users extends Component {
             showFilters: isOpen
         })
     }
-    editClickHandler = () => {
-
+    editClickHandler = (e) => {
+        let selId = console.log(e.currentTarget.dataset.id);
+        this.setState({
+            selectedForEdit: selId
+        })
     }
     deleteClickHandler = () => {
         this.setState({
@@ -144,7 +150,7 @@ export default class Users extends Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr className='active'>
+                                    <tr data-id='1' className='active'>
                                         <td>
                                             <img src={userpp} alt='user' />
                                             Rizvan Bağırlı
@@ -154,10 +160,14 @@ export default class Users extends Component {
                                         <td><div className='status active'></div></td>
                                         <td>
                                             <div className="operations">
-                                                <div className='edit' onClick={this.editClickHandler}>
-                                                    <Icon path={mdiPencil} size={.8} className='mdi' />
-                                                    <div className='tooltip'>Düzəliş et</div>
-                                                </div>
+                                                {/* <Link to={{ pathname: '/users/edit', search: { id: this.state.selectedForEditId } }}> */}
+                                                <Link to={{ pathname: `/users/${1}` }}>
+                                                    <div className='edit' onClick={this.editClickHandler} data-id='1'>
+                                                        {/* <div className='edit'> */}
+                                                        <Icon path={mdiPencil} size={.8} className='mdi' />
+                                                        <div className='tooltip'>Düzəliş et</div>
+                                                    </div>
+                                                </Link>
                                                 <div className='delete' onClick={this.deleteClickHandler}>
                                                     <Icon path={mdiDelete} size={.8} className='mdi' />
                                                     <div className='tooltip'>Sil</div>
@@ -166,7 +176,7 @@ export default class Users extends Component {
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr className='deactive'>
+                                    <tr data-id='2' className='deactive'>
                                         <td>
                                             <img src={userpp} alt='user' />
                                             Knyaz Yaqublu
@@ -176,10 +186,12 @@ export default class Users extends Component {
                                         <td><div className='status deactive'></div></td>
                                         <td>
                                             <div className="operations">
-                                                <div className='edit' onClick={this.editClickHandler}>
-                                                    <Icon path={mdiPencil} size={.8} className='mdi' />
-                                                    <div className='tooltip'>Düzəliş et</div>
-                                                </div>
+                                                <Link to={{ pathname: '/users/edit', query: this.state.selectedForEditId }}>
+                                                    <div className='edit' onClick={this.editClickHandler} data-id='2'>
+                                                        <Icon path={mdiPencil} size={.8} className='mdi' />
+                                                        <div className='tooltip'>Düzəliş et</div>
+                                                    </div>
+                                                </Link>
                                                 <div className='delete' onClick={this.deleteClickHandler}>
                                                     <Icon path={mdiDelete} size={.8} className='mdi' />
                                                     <div className='tooltip'>Sil</div>
@@ -195,7 +207,7 @@ export default class Users extends Component {
                 </div>
                 {deleteConfirmModal}
                 {addUserModal}
-            </div>
+            </div >
         )
     }
 }

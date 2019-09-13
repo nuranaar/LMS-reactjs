@@ -26,7 +26,7 @@ export default class AddUserModal extends React.Component {
         })
     }
     deleteInputClickHanler = (e) => {
-        // console.log(e.currentTarget.dataset.id);
+        // console.log(e.currentTarget.dataset.id);     
         let deletedId = e.currentTarget.dataset.id;
         let inputs = this.state.inputs.filter(input => input.id != deletedId);
         // console.log(deletedId, inputs);
