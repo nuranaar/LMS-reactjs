@@ -12,7 +12,6 @@
 
     .roles {
         background-color: #fff;
-        box-shadow: $shadow;
         padding: 7px 10px;
         border-radius: 5px;
         padding-left: 0;
@@ -21,10 +20,9 @@
             display: flex;
 
             .role {
-                padding: 7px 15px;
-                padding-left: 0;
+                padding-right: 50px;
                 background-color: #fff;
-                width: 150px;
+                width: max-content;
                 margin: 7px 0;
                 font-size: 14px;
                 font-weight: 500;

@@ -24,7 +24,7 @@ export default class DataEdit extends React.Component {
                 </div>
             </div>;
         } else {
-            let disabled = this.props.data.type === 'email' ? true : false;
+            let disabled = this.props.data.type === 'email' ||this.props.data.type === 'programm' ? true : false;
             faild = <div className="form-group">
                 <label htmlFor={this.props.data.type} className="label">{this.props.data.label}</label>
                 <input id={this.props.data.type} disabled={disabled} className="input " defaultValue={this.props.data.data} name={this.props.data.type} />

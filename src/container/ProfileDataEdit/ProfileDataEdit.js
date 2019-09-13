@@ -10,7 +10,7 @@ import RolCheckboxes from '../../component/ProfilePage/RolCheckboxes/RolCheckbox
 export default class ProfileDataEdit extends React.Component {
     state = {
         rols: [{
-            name: 'student',
+            name: 'admin',
             datas: [
                 {
                     id: 1,
@@ -57,7 +57,7 @@ export default class ProfileDataEdit extends React.Component {
 
             ]
         }],
-        currentRol: 'student',
+        currentRol: 'admin',
         showModal: false,
         dataTarget: null,
         roleSegments: [
@@ -115,7 +115,8 @@ export default class ProfileDataEdit extends React.Component {
 
         if (this.state.currentRol === 'admin' || this.state.currentRol === 'manager') {
             save_btn = <Button class="btn btn-send" >Yadda saxla</Button>;
-            data_target = "thanks-popup";
+            //success toastr
+            
         } else {
             save_btn = <Button class="btn btn-send" >Dəyişikliyi göndər</Button>;
             data_target = "send-note-change";
@@ -146,17 +147,18 @@ export default class ProfileDataEdit extends React.Component {
                                             return <DataEdit data={data} key={data.id} />
                                         })
                                     })}
-                                    <div className="form-group">
-                                        <div className="label">Rollar</div>
-                                        <div className='roles'>
-                                            <ul >
-                                                {this.state.roleSegments.map(role => {
-                                                    return <RolCheckboxes change={() => this.roleSelectHandler(role.key)} addClass={role.active ? 'active' : ''} text={role.text} key={role.key} />
-                                                })}
-                                            </ul>
+                                    {this.state.currentRol === 'admin' ?
+                                        <div className="form-group">
+                                            <div className="label">Rollar</div>
+                                            <div className='roles'>
+                                                <ul >
+                                                    {this.state.roleSegments.map(role => {
+                                                        return <RolCheckboxes change={() => this.roleSelectHandler(role.key)} addClass={role.active ? 'active' : ''} text={role.text} key={role.key} />
+                                                    })}
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-
+                                        : ''}
                                     <div className="form-btn">
                                         <Link to='/profile'>  <Button class="btn btn-cancel">Ləğv et</Button></Link>
                                         {save_btn}
