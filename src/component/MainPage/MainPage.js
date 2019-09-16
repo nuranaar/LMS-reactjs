@@ -8,6 +8,7 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 import LessonsPage from '../../container/LessonsPage/LessonsPage';
 import UserPage from '../UsersPage/UserPage';
 import EditUsersProfile from '../../container/Users/EditUsersProfile/EditUsersProfile';
+import UserRolesPage from '../../container/UserRolesPage/UserRolesPage';
 
 export default function MainPage(props) {
     return (
@@ -21,6 +22,7 @@ export default function MainPage(props) {
                     <Route path='/lessons' render={() => <LessonsPage />} />
                     <Route  path='/users' render={() => <UserPage />} />
                     <Route  path={`/users/:id`} component={EditUsersProfile}  />
+                    <Route  path={`/roles`} component={UserRolesPage}  />
 
                 </main>
             </div>

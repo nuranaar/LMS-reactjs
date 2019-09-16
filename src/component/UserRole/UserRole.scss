@@ -1,0 +1,59 @@
+@import "../../assets/css/ScssPartials/variable";
+.role-card {
+  margin: 15px;
+  box-shadow: $shadow;
+  width: 16%;
+  padding: 50px 0;
+  border-radius: 4px;
+  position: relative;
+  .operations {
+    position: absolute;
+    display: flex;
+    top: 12px;
+    right: 8px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.4s;
+    .operation {
+      width: 23px;
+      height: 23px;
+      margin: 4px;
+      box-shadow: $shadow;
+      border-radius: 50%;
+      text-align: center;
+      svg.mdi {
+        transition: all 0.2s;
+        fill: $undefined;
+        padding: 3px 0;
+      }
+      &:hover {
+        svg.mdi {
+          fill: $main_color;
+        }
+      }
+    }
+  }
+  .icon {
+    text-align: center;
+    svg.mdi {
+      transition: all 0.4s;
+    }
+  }
+  .card-title {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 800;
+    margin-top: 30px;
+  }
+  &:hover {
+    .operations {
+      visibility: visible;
+      opacity: 1;
+    }
+    .icon {
+      svg.mdi {
+        fill: $main_color;
+      }
+    }
+  }
+}

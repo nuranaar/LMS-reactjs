@@ -8,7 +8,6 @@ import FilterItem from '../../component/FilterItem/FilterItem';
 import UserDeleteConfirmModal from '../../component/UI/Modal/UserDeleteConfirmModal/UserDeleteConfirmModal';
 import AddUserModal from '../../component/UI/Modal/AddUserModal/AddUserModal';
 import { Route, Link } from 'react-router-dom'
-import EditUsersProfile from './EditUsersProfile/EditUsersProfile';
 
 
 export default class Users extends Component {
@@ -186,8 +185,9 @@ export default class Users extends Component {
                                         <td><div className='status deactive'></div></td>
                                         <td>
                                             <div className="operations">
-                                                <Link to={{ pathname: '/users/edit', query: this.state.selectedForEditId }}>
+                                            <Link to={{ pathname: `/users/${2}` }}>
                                                     <div className='edit' onClick={this.editClickHandler} data-id='2'>
+                                                        {/* <div className='edit'> */}
                                                         <Icon path={mdiPencil} size={.8} className='mdi' />
                                                         <div className='tooltip'>Düzəliş et</div>
                                                     </div>

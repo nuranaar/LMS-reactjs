@@ -1,10 +1,8 @@
 import React from 'react'
 import profile_photo from '../../../assets/img/users/images.jfif';
-import edit_photo from '../../../assets/img/menubar-icons/change photo.png';
 import { Link } from 'react-router-dom'
 import RolCheckboxes from '../../../component/ProfilePage/RolCheckboxes/RolCheckboxes';
 import Button from '../../../component/UI/Button/Button';
-import Modal from '../../../component/UI/Modal/Modal';
 import DataEdit from '../../ProfileDataEdit/DataEdit/DataEdit';
 import { withRouter } from 'react-router';
 
@@ -115,10 +113,6 @@ const match = matchPath("/users/123", {
         })
     }
     render() {
-        let display = {
-            display: "none"
-        };
-        let modal = <Modal id={this.state.dataTarget} isOpen={this.state.showModal} closeModal={this.modalCloseHandler} sendNote={this.modalContentHandler} />
         let save_btn = null;
         let data_target = null;
 
@@ -135,21 +129,14 @@ const match = matchPath("/users/123", {
                 <div className="col-lg-12">
                     <div className="body" id="profile-edit">
                         <div className="body-head d-flex justify-content-between">
-                        {/* Şəxsi məlumatın redaktəsi */}
-                            <p className="title"> </p>
+                            <p className="title">İstifadəçi məlumatının redaktəsi</p>
                         </div>
                         <form className="datas mt-6 pb-6" onSubmit={this.modalContentHandler} data-target={data_target}>
                             <div className="row">
                                 <div className="col-lg-3 text-center">
-                                    <label htmlFor="photo">
                                         <div className="photo">
                                             <img className="user-photo" src={profile_photo} alt="" />
-                                            <img className="change-label" src={edit_photo}
-                                                alt="" />
                                         </div>
-                                    </label>
-                                    <input type="file" id="photo" style={display} />
-                                    <a className="btn btn-del-photo" href="#">Profil şəklini sil</a>
                                 </div>
                                 <div className="col-lg-9">
                                     {this.state.rols.filter(role => role.name === this.state.currentRol).map(role => {
@@ -170,18 +157,16 @@ const match = matchPath("/users/123", {
                                         </div>
                                         : ''}
                                     <div className="form-btn">
-                                        <Link to='/profile'>  <Button class="btn btn-cancel">Ləğv et</Button></Link>
+                                        <Link to='/users'>  <Button class="btn btn-cancel">Ləğv et</Button></Link>
                                         {save_btn}
                                     </div>
                                 </div>
                             </div>
                         </form>
                     </div>
-                    {modal}
                 </div>
             </div>
         )
     }
 }
-// const EditUsersProfileWithRoute = withRouter(EditUsersProfile);
 export default withRouter(EditUsersProfile)

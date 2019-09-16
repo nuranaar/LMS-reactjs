@@ -4,50 +4,63 @@ import {
     mdiTeach,
     mdiSchool,
     mdiAccountTie,
-    mdiKeyVariant
+    mdiKeyVariant,
+    mdiDelete,
+    mdiPencil
 } from '@mdi/js'
+import './UserRole.scss';
 
-export default function Rol(props) {
+export default function UserRole(props) {
     let path = null;
-    let fill= null;
+    let fill = null;
     let title = null;
     switch (props.title) {
         case ('teacher'):
             title = 'Müəllim';
             path = mdiTeach;
-            fill='#00a659';
+            fill = '#00a659';
             break;
         case ('student'):
             title = 'Tələbə';
-            fill='#ffc906';
+            fill = '#ffc906';
             path = mdiSchool;
             break;
         case ('manager'):
             title = 'Menecer';
             path = mdiAccountTie;
-            fill='#f0812b';
+            fill = '#f0812b';
             break;
         case ('admin'):
             title = 'Admin';
             path = mdiKeyVariant;
-            fill='#873996';
+            fill = '#873996';
             break;
         default:
             title = null;
             path = null;
     }
     return (
-        <div className="segment" onClick={props.clicked}>
+        <div className="role-card"  >
+            <div className='operations'>
+                <div className='operation delete' data-id={props.id} onClick={props.clickDelete}><Icon path={mdiDelete}
+                size={.7}
+                className='mdi'
+                /></div>
+                <div className='operation edit' data-id={props.id} onClick={props.clickEdit}><Icon path={mdiPencil}
+                size={.7}
+                className='mdi'
+                /></div>
+            </div>
             <a href="#">
-                <div className={"icon " + props.title + "-icon"}>
+                <div className="icon">
                     <Icon
                         path={path}
-                        size={4}
+                        size={3}
                         className='mdi'
                         fill={fill} />
                 </div>
             </a>
-            <div className="segment-title">{title}</div>
+            <div className="card-title">{title}</div>
         </div>
 
     )
