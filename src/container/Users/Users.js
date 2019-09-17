@@ -113,7 +113,7 @@ export default class Users extends Component {
             addUserModal = <AddUserModal
                 isOpen={this.state.showAddUser}
                 closeModal={this.closeAddUserModal}
-                id='delete_confirm_modal'
+                id='add_user_modal'
             />
         }
         return (

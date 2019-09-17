@@ -1,5 +1,4 @@
 import React from 'react'
-import closeIcon from '../../../../assets/img/loginimg/cancel icon.png';
 import './AddUserModal.scss';
 import Button from '../../Button/Button';
 import Icon from '@mdi/react';
@@ -42,11 +41,11 @@ export default class AddUserModal extends React.Component {
             icon = <Icon path={mdiClose} size={.8} className='mdi' />
         }
         return (
-            <div className={["popups", this.props.isOpen ? "open" : ""].join(" ")} id={this.props.id}>
+            <div className={["popups", this.props.isOpen ? "open" : ""].join(" ")}>
                 <div onClick={this.props.closeModal} className="popup-area"></div>
                 <div className="popup ">
                     <div className="close" onClick={this.props.closeModal}>
-                        <img src={closeIcon} alt="close" />
+                <Icon path={mdiClose} className="close" size={.8}  />                       
                     </div>
                     <div className="popup-header">
                         <p>İstifadəçi əlavə et</p>

@@ -2,33 +2,55 @@ import React, { Component } from 'react';
 import './UserRolesPage.scss';
 import Button from '../../component/UI/Button/Button';
 import UserRole from '../../component/UserRole/UserRole';
+import RoleDeleteConfirmModal from '../../component/UI/Modal/RoleDeleteConfirmModal/RoleDeleteConfirmModal';
+import RoleEditModal from '../../component/UI/Modal/RoleEditModal/RoleEditModal';
+import Icon from '@mdi/react'
+import {
+    mdiTeach,
+    mdiSchool,
+    mdiAccountTie,
+    mdiKeyVariant,
+    mdiDelete,
+    mdiPencil
+} from '@mdi/js';
 
 export default class UserRolesPage extends Component {
     state = {
         rols: [{
             id: 1,
             name: 'admin',
+            label:'Admin',
+            fill:'#873996',
+            path:mdiKeyVariant
+        },
+        {
+            id: 4,
+            name: 'manager',
+            label:'Menecer',
+            fill:'#f0812b',
+            path:mdiAccountTie
         },
         {
             id: 2,
             name: 'teacher',
+            label:'Müəllim',
+            fill:'#00a659',
+            path:mdiTeach
         },
         {
             id: 3,
             name: 'student',
+            label:'Tələbə',
+            fill:'#ffc906',
+            path:mdiSchool
         },
-        {
-            id: 4,
-            name: 'manager'
-        }
         ],
         selectedRoleId: null,
         showRolEditModal: false,
         showDeleteConfirmModal: false
     }
     editClickHandler = (e) => {
-        let selId = e.currentTarget.dataset.id;
-        console.log(selId, 'edit');
+        let selId = parseInt(e.currentTarget.dataset.id);
         this.setState({
             selectedRoleId: selId,
             showRolEditModal: true
@@ -36,7 +58,6 @@ export default class UserRolesPage extends Component {
     }
     deleteClickHandler = (e) => {
         let selId = parseInt(e.currentTarget.dataset.id);
-        console.log(selId, 'delete');
         let rols = this.state.rols.filter(rol => rol.id !== selId);
         this.setState({
             selectedRoleId: selId,
@@ -46,8 +67,28 @@ export default class UserRolesPage extends Component {
         //     rols:rols
         // })
     }
+    closeDeleteModal = () => {
+        this.setState({
+            showDeleteConfirmModal: false
+        })
+    }
+    closeEditModal = () => {
+        this.setState({
+            showRolEditModal: false
+        })
+    }
     render() {
+        let delete_modal = '';
+        let edit_modal = '';
+        let rol=this.state.rols.find(rol=>rol.id===this.state.selectedRoleId);
+        if (this.state.showDeleteConfirmModal) {
+            delete_modal = <RoleDeleteConfirmModal isOpen={this.state.showDeleteConfirmModal} closeModal={this.closeDeleteModal} rol={rol} />
+        }
+        if (this.state.showRolEditModal) {
+            edit_modal = <RoleEditModal isOpen={this.state.showRolEditModal} closeModal={this.closeEditModal} rol={rol} />
+        }
         return (
+
             <div className="page-body">
                 <div className="col-lg-12">
                     <div className="body" >
@@ -58,12 +99,13 @@ export default class UserRolesPage extends Component {
                         <div className='roles'>
 
                             {this.state.rols.map(rol => {
-                                // return <UserRole clicked={() => this.roleCLickHandler(rol)} title={rol} />;
-                                return <UserRole title={rol.name} key={rol.id} id={rol.id} clickEdit={this.editClickHandler} clickDelete={this.deleteClickHandler} />;
+                                return <UserRole label={rol.name} key={rol.id} id={rol.id} fill={rol.fill} path={rol.path} clickEdit={this.editClickHandler} clickDelete={this.deleteClickHandler} />;
                             })}
                         </div>
                     </div>
                 </div>
+                {delete_modal}
+                {edit_modal}
             </div >
         )
     }

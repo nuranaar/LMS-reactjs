@@ -1,0 +1,36 @@
+@import "../../../../assets/css/ScssPartials/variable";
+
+.modal-desc {
+    font-size: 16px;
+    font-weight: 600;
+    color: $undefined;
+    padding: 40px 30px;
+}
+
+.popup-header {
+    text-align: left !important;
+        p {
+        padding-left: 30px;
+    }
+}
+
+.buttons {
+    .btn {
+        border: 1px solid $main_color;
+        font-size: 16px;
+        font-weight: bold;
+
+        &.btn-cancel {
+            background-color: #fff;
+            color: $main_color;
+            padding: 16px 52px;
+        }
+
+        &.btn-confirm {
+            margin-left: 24px;
+            padding: 16px 75px;
+            color: #fff;
+            background-color: $main_color;
+        }
+    }
+}

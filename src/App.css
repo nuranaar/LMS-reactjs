@@ -285,15 +285,7 @@ video {
 	border-radius: 100%;
 }
 
-#add-label,
-#delete_confirm_modal,
-#add-rol,
-#fin-info,
-#confirm,
-#send-note,
-#send-note-change,
-#add-user,
-#thanks-popup {
+.popups {
 	position: fixed;
 	width: 100%;
 	min-height: 100vh;
@@ -319,7 +311,6 @@ video {
 .popup {
 	line-height: 1.5;
 	position: absolute;
-	width: 350px;
 	background-color: #fff;
 	border-radius: 5px;
 	-webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
@@ -336,15 +327,15 @@ video {
 }
 .popup .close {
 	position: absolute;
-	right: 35px;
-	top: 28px;
+	right: 16px;
+    top: 16px;
 	width: 15px;
 	height: 15px;
 	cursor: pointer;
 }
 
-.popup .close img {
-	width: 100%;
+.popup .close svg.close {
+	fill:#fff;
 }
 
 .popup .popup-header {
