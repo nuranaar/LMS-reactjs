@@ -4,14 +4,11 @@ import Button from '../../component/UI/Button/Button';
 import UserRole from '../../component/UserRole/UserRole';
 import RoleDeleteConfirmModal from '../../component/UI/Modal/RoleDeleteConfirmModal/RoleDeleteConfirmModal';
 import RoleEditModal from '../../component/UI/Modal/RoleEditModal/RoleEditModal';
-import Icon from '@mdi/react'
 import {
     mdiTeach,
     mdiSchool,
     mdiAccountTie,
     mdiKeyVariant,
-    mdiDelete,
-    mdiPencil
 } from '@mdi/js';
 
 export default class UserRolesPage extends Component {
@@ -19,34 +16,34 @@ export default class UserRolesPage extends Component {
         rols: [{
             id: 1,
             name: 'admin',
-            label:'Admin',
-            fill:'#873996',
-            path:mdiKeyVariant
+            label: 'Admin',
+            fill: '#873996',
+            path: mdiKeyVariant
         },
         {
             id: 4,
             name: 'manager',
-            label:'Menecer',
-            fill:'#f0812b',
-            path:mdiAccountTie
+            label: 'Menecer',
+            fill: '#f0812b',
+            path: mdiAccountTie
         },
         {
             id: 2,
             name: 'teacher',
-            label:'Müəllim',
-            fill:'#00a659',
-            path:mdiTeach
+            label: 'Müəllim',
+            fill: '#00a659',
+            path: mdiTeach
         },
         {
             id: 3,
             name: 'student',
-            label:'Tələbə',
-            fill:'#ffc906',
-            path:mdiSchool
+            label: 'Tələbə',
+            fill: '#ffc906',
+            path: mdiSchool
         },
         ],
-        selectedRoleId: null,
-        showRolEditModal: false,
+        selectedRoleId: 1,
+        showRolEditModal: true,
         showDeleteConfirmModal: false
     }
     editClickHandler = (e) => {
@@ -80,7 +77,7 @@ export default class UserRolesPage extends Component {
     render() {
         let delete_modal = '';
         let edit_modal = '';
-        let rol=this.state.rols.find(rol=>rol.id===this.state.selectedRoleId);
+        let rol = this.state.rols.find(rol => rol.id === this.state.selectedRoleId);
         if (this.state.showDeleteConfirmModal) {
             delete_modal = <RoleDeleteConfirmModal isOpen={this.state.showDeleteConfirmModal} closeModal={this.closeDeleteModal} rol={rol} />
         }
@@ -99,7 +96,7 @@ export default class UserRolesPage extends Component {
                         <div className='roles'>
 
                             {this.state.rols.map(rol => {
-                                return <UserRole label={rol.name} key={rol.id} id={rol.id} fill={rol.fill} path={rol.path} clickEdit={this.editClickHandler} clickDelete={this.deleteClickHandler} />;
+                                return <UserRole label={rol.label} key={rol.id} id={rol.id} fill={rol.fill} path={rol.path} clickEdit={this.editClickHandler} clickDelete={this.deleteClickHandler} />;
                             })}
                         </div>
                     </div>
