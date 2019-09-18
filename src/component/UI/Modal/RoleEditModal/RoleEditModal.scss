@@ -19,12 +19,14 @@
   width: 394px;
   .item {
     border: 1px solid #fff;
-    background-color: #edf5fe;
-    background-color: #fafafa;
+    background-color: #f7f7f7;
     padding: 11px;
     border-radius: 6px;
     margin: 4px;
     transition: all 0.3s;
+    svg.mdi {
+      fill: $undefined;
+    }
     &::after,
     &::before {
       transition: all 0.3s;
@@ -33,7 +35,7 @@
     }
 
     &.active {
-      border-color: $btn_color;
+      border-color: $main_color;
       background-color: #edf5fe;
       position: relative;
       &::after {
@@ -42,7 +44,7 @@
         width: 12px;
         height: 12px;
         border-radius: 50%;
-        background-color: $btn_color;
+        background-color: $main_color;
       }
       &::before {
         z-index: 2;
@@ -52,21 +54,27 @@
         height: 5px;
         border-radius: 2px;
         border: 2px solid #fff;
-        border-left: $btn_color;
-        border-top: $btn_color;
+        border-left: $main_color;
+        border-top: $main_color;
         transform: rotate(45deg);
       }
     }
   }
 }
 .color-set {
-    display: flex;
-    justify-content: flex-start;
+  display: flex;
+  justify-content: flex-start;
   .color-item {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 1px solid #fff;
-    margin: 4px;
+    margin: 3px;
+    border: 2px solid #fff;
+    &.active {
+      border-radius: 50%;
+    }
+    .circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
   }
 }

@@ -84,7 +84,10 @@ hr {
 	text-align: center;
 	border: none;
 }
-
+.btn:hover{
+	background-color: #0286cd;
+	color:#fff;
+}
 .btn.btn-form {
 	padding: 20px;
 }
@@ -98,7 +101,7 @@ hr {
 	border: 1px solid #ec3724 !important;
 }
 .input-error:focus {
-	border: 1px solid #0286cd !important;
+	border: 1px solid #4a90e2 !important;
 	outline: none;
 }
 
@@ -339,7 +342,7 @@ video {
 }
 
 .popup .popup-header {
-	background-color: #0286cd;
+	background-color: #4a90e2;
 	line-height: 60px;
 	font-size: 20px;
 	padding: 10px 0;
@@ -375,8 +378,8 @@ video {
 }
 
 .popup .popup-body .form-item .form-btn.remember {
-	background-color: #0286cd;
-	border: 1px solid #0286cd;
+	background-color: #4a90e2;
+	border: 1px solid #4a90e2;
 	color: #fff;
 	border-radius: 5px;
 	padding: 8px 14px 5px 13px;
@@ -506,7 +509,7 @@ video {
 }
 
 .form .input:focus {
-	border: 1px solid #0286cd;
+	border: 1px solid #4a90e2;
 	outline: none;
 }
 
@@ -570,9 +573,9 @@ video {
 
 .form .btn-form {
 	width: 100%;
-	border: 1px solid #0286cd;
+	border: 1px solid #4a90e2;
 	border-radius: 5px;
-	background-color: #0286cd;
+	background-color: #4a90e2;
 	color: #fff;
 	position: relative;
 }
@@ -692,15 +695,15 @@ video {
 }
 
 #confirm .popup .popup-body .buttons .btn.btn-back {
-	color: #0286cd;
+	color: #4a90e2;
 	background-color: #fff;
-	border: 1px solid #0286cd;
+	border: 1px solid #4a90e2;
 }
 
 #confirm .popup .popup-body .buttons .btn.btn-confirm {
 	color: #fff;
-	background-color: #0286cd;
-	border: 1px solid #0286cd;
+	background-color: #4a90e2;
+	border: 1px solid #4a90e2;
 }
 
 #confirm .popup .popup-body .confirm-note {
@@ -717,7 +720,7 @@ video {
 }
 
 #confirm .popup .popup-body .confirm-note .note-info .send-note {
-	color: #0286cd;
+	color: #4a90e2;
 	cursor: pointer;
 }
 
@@ -745,7 +748,7 @@ video {
 
 #send-note .popup .popup-body .form textarea:focus {
 	outline: none;
-	border: 1px solid #0286cd;
+	border: 1px solid #4a90e2;
 }
 
 #send-note .popup .popup-body .form textarea::-webkit-scrollbar-track {
@@ -793,7 +796,7 @@ video {
 
 #send-note-change .popup .popup-body .form textarea:focus {
 	outline: none;
-	border: 1px solid #0286cd;
+	border: 1px solid #4a90e2;
 }
 
 #send-note-change .popup .popup-body .form textarea::-webkit-scrollbar-track {
@@ -853,7 +856,7 @@ video {
 	width: 470px;
 	color: #fff;
 	font-size: 16px;
-	background-color: #0286cd;
+	background-color: #4a90e2;
 	margin: 30px;
 	padding: 20px;
 }
@@ -1031,7 +1034,7 @@ video {
 }
 
 #segmentations .segments .segment:hover .icon svg.mdi {
-	fill: #0286cd;
+	fill: #4a90e2;
 }
 
 .header-gradient {
@@ -1075,7 +1078,7 @@ video {
 }
 
 #menu .menu-cards .card:hover .icon svg.mdi {
-	fill: #0286cd;
+	fill: #4a90e2;
 }
 
 #menu .menu-cards .card .icon svg.mdi {
@@ -1227,7 +1230,7 @@ nav.menu-bar .nav-list .nav-item::after {
 	top: 50%;
 	width: 4px;
 	height: 0;
-	background-color: #0286cd;
+	background-color: #4a90e2;
 	border-radius: 2px;
 	-webkit-transition: all 0.2s;
 	transition: all 0.2s;
@@ -1356,7 +1359,7 @@ nav.menu-bar .nav-list .nav-item .nav-text {
 .page-body .body .datas .btn-del-photo {
 	font-size: 14px;
 	font-weight: 500;
-	color: #0286cd;
+	color: #4a90e2;
 }
 
 .page-body .body .datas .form-group {
@@ -1396,7 +1399,7 @@ nav.menu-bar .nav-list .nav-item .nav-text {
 
 .page-body .body .datas .form-group .input:focus {
 	outline: none;
-	border: 1px solid #0286cd;
+	border: 1px solid #4a90e2;
 }
 
 .page-body .body .datas .form-group .input.phone-input {
@@ -1435,9 +1438,9 @@ nav.menu-bar .nav-list .nav-item .nav-text {
 
 .page-body .body .datas .form-btn .btn-cancel {
 	width: 130px;
-	border: 1px solid #0286cd;
+	border: 1px solid #4a90e2;
 	background: #fff;
-	color: #0286cd;
+	color: #4a90e2;
 	font-size: 14px;
 	font-weight: 600;
 	margin: 0 11px;
@@ -1445,9 +1448,9 @@ nav.menu-bar .nav-list .nav-item .nav-text {
 
 .page-body .body .datas .form-btn .btn-send {
 	width: 160px;
-	border: 1px solid #0286cd;
+	border: 1px solid #4a90e2;
 	color: #fff;
-	background-color: #0286cd;
+	background-color: #4a90e2;
 	font-size: 14px;
 	font-weight: 600;
 	margin: 0 11px;
@@ -1464,17 +1467,17 @@ nav.menu-bar .nav-list .nav-item .nav-text {
 
 #send-note .buttons .btn.btn-back {
 	width: 160px;
-	border: 1px solid #0286cd;
+	border: 1px solid #4a90e2;
 	background: #fff;
-	color: #0286cd;
+	color: #4a90e2;
 	font-size: 14px;
 	font-weight: 600;
 }
 
 #send-note .buttons .btn.btn-confirm {
 	color: #fff;
-	background-color: #0286cd;
-	border: 1px solid #0286cd;
+	background-color: #4a90e2;
+	border: 1px solid #4a90e2;
 }
 #send-note-change .buttons {
 	margin: 40px 0;
@@ -1487,17 +1490,17 @@ nav.menu-bar .nav-list .nav-item .nav-text {
 
 #send-note-change .buttons .btn.btn-back {
 	width: 160px;
-	border: 1px solid #0286cd;
+	border: 1px solid #4a90e2;
 	background: #fff;
-	color: #0286cd;
+	color: #4a90e2;
 	font-size: 14px;
 	font-weight: 600;
 }
 
 #send-note-change .buttons .btn.btn-confirm {
 	color: #fff;
-	background-color: #0286cd;
-	border: 1px solid #0286cd;
+	background-color: #4a90e2;
+	border: 1px solid #4a90e2;
 }
 
 #thanks-popup .popup {
@@ -1521,7 +1524,7 @@ nav.menu-bar .nav-list .nav-item .nav-text {
 
 #thanks-popup .popup .popup-body .btn-close {
 	margin: 36px;
-	background-color: #0286cd;
+	background-color: #4a90e2;
 	font-size: 16px;
 	font-weight: bold;
 	color: #fff;

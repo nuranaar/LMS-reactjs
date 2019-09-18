@@ -10,6 +10,7 @@ import {
     mdiAccountTie,
     mdiKeyVariant,
 } from '@mdi/js';
+import RoleAddModal from '../../component/UI/Modal/RoleAddModal/RoleAddModal';
 
 export default class UserRolesPage extends Component {
     state = {
@@ -42,8 +43,9 @@ export default class UserRolesPage extends Component {
             path: mdiSchool
         },
         ],
-        selectedRoleId: 1,
-        showRolEditModal: true,
+        selectedRoleId: '',
+        showRolEditModal: false,
+        showRolAddModal: false,
         showDeleteConfirmModal: false
     }
     editClickHandler = (e) => {
@@ -55,14 +57,15 @@ export default class UserRolesPage extends Component {
     }
     deleteClickHandler = (e) => {
         let selId = parseInt(e.currentTarget.dataset.id);
-        let rols = this.state.rols.filter(rol => rol.id !== selId);
         this.setState({
             selectedRoleId: selId,
             showDeleteConfirmModal: true
         })
-        // this.setState({
-        //     rols:rols
-        // })
+    }
+    addUserRoleClickHandler = () => {
+        this.setState({
+            showRolAddModal: true
+        })
     }
     closeDeleteModal = () => {
         this.setState({
@@ -74,15 +77,24 @@ export default class UserRolesPage extends Component {
             showRolEditModal: false
         })
     }
+    closeAddModal = () => {
+        this.setState({
+            showRolAddModal: false
+        })
+    }
     render() {
         let delete_modal = '';
         let edit_modal = '';
+        let add_modal = '';
         let rol = this.state.rols.find(rol => rol.id === this.state.selectedRoleId);
         if (this.state.showDeleteConfirmModal) {
             delete_modal = <RoleDeleteConfirmModal isOpen={this.state.showDeleteConfirmModal} closeModal={this.closeDeleteModal} rol={rol} />
         }
         if (this.state.showRolEditModal) {
             edit_modal = <RoleEditModal isOpen={this.state.showRolEditModal} closeModal={this.closeEditModal} rol={rol} />
+        }
+        if (this.state.showRolAddModal) {
+            add_modal = <RoleAddModal isOpen={this.state.showRolAddModal} closeModal={this.closeAddModal} rol={rol} />
         }
         return (
 
@@ -103,6 +115,7 @@ export default class UserRolesPage extends Component {
                 </div>
                 {delete_modal}
                 {edit_modal}
+                {add_modal}
             </div >
         )
     }

@@ -99,7 +99,7 @@ export default class RoleEditModal extends React.Component {
         })
     }
     render() {
-        return (
+        return ( 
             <div className={["popups", this.props.isOpen ? "open" : ""].join(" ")}>
                 <div onClick={this.props.closeModal} className="popup-area"></div>
                 <div className="popup ">
@@ -116,12 +116,11 @@ export default class RoleEditModal extends React.Component {
                         <input type='text' defaultValue={this.props.rol.label} />
                         <p className='label'>Icon</p>
                         <div className='icon-set'>
-                            {this.state.icons.map(icon => { return <div key={icon.id} className={['item', icon.id === this.state.currentIcon.id ? 'active' : ''].join(' ')} data-id={icon.id} onClick={this.iconClickHandler}><Icon path={icon.path} fill={icon.fill} size={1.4} className='mdi' /></div> })}
+                            {this.state.icons.map(icon => { return <div key={icon.id} className={['item', icon.id === this.state.currentIcon.id ? 'active' : ''].join(' ')} data-id={icon.id} onClick={this.iconClickHandler}><Icon path={icon.path} size={1.4} className='mdi' /></div> })}
                         </div>
                         <p className='label'>İconun rəngi</p>
                         <div className='color-set'>
-                            {this.state.colors.map(color => { return <div key={color.id} className={['color-item', color.id === this.state.currentColor.id ? 'active' : ''].join(' ')} data-id={color.id} onClick={this.colorClickHandler} style={{ backgroundColor: color.code }}></div> })}
-
+                            {this.state.colors.map(color => { return <div key={color.id} className={['color-item', color.id === this.state.currentColor.id ? 'active' : ''].join(' ')} data-id={color.id} onClick={this.colorClickHandler} style={color.id === this.state.currentColor.id ?{ borderColor: color.code }:{borderColor: '#fff'}}> <div className='circle' style={{ backgroundColor: color.code }}></div> </div> })}
                         </div>
                     </div>
                     <div className="buttons text-center">
