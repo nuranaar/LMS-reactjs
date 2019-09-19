@@ -1,0 +1,20 @@
+@import "../../../assets/css/ScssPartials/variable";
+
+.selecting-list {
+  display: flex;
+  margin-left: auto;
+  align-items: baseline;
+  .item {
+    font-size: 13px;
+    font-weight: 500;
+    color: $title;
+    padding: 9px 18px;
+    &.active {
+      padding: 9px 24px;
+      color: $text_color;
+      background-color: #fafafa;
+      border-radius: 3px;
+      border: solid 1px #f2f2f2;
+    }
+  }
+}

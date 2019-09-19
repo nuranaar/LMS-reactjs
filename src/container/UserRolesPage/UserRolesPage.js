@@ -107,8 +107,8 @@ export default class UserRolesPage extends Component {
                         </div>
                         <div className='roles'>
 
-                            {this.state.rols.map(rol => {
-                                return <UserRole label={rol.label} key={rol.id} id={rol.id} fill={rol.fill} path={rol.path} clickEdit={this.editClickHandler} clickDelete={this.deleteClickHandler} />;
+                            {this.state.rols.map(role => {
+                                return <UserRole key={role.id} role={role} clickEdit={this.editClickHandler} clickDelete={this.deleteClickHandler} />;
                             })}
                         </div>
                     </div>

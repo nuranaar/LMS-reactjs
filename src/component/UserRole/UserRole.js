@@ -1,5 +1,6 @@
 import React from 'react';
-import Icon from '@mdi/react'
+import Icon from '@mdi/react';
+import { Link } from 'react-router-dom'
 import {
     mdiDelete,
     mdiPencil
@@ -12,26 +13,26 @@ export default function UserRole(props) {
     return (
         <div className="role-card"  >
             <div className='operations'>
-                <div className='operation delete' data-id={props.id} onClick={props.clickDelete}><Icon path={mdiDelete}
+                <div className='operation delete' data-id={props.role.id} onClick={props.role.clickDelete}><Icon path={mdiDelete}
                     size={.7}
                     className='mdi'
                 /></div>
-                <div className='operation edit' data-id={props.id} onClick={props.clickEdit}><Icon path={mdiPencil}
+                <div className='operation edit' data-id={props.role.id} onClick={props.role.clickEdit}><Icon path={mdiPencil}
                     size={.7}
                     className='mdi'
                 /></div>
             </div>
-            <a href="#">
+            <Link to={{ pathname: `/roles/${props.role.name}`, state:{ role: `${props.role}` } }}>
                 <div className="icon">
                     <Icon
-                        path={props.path}
+                        path={props.role.path}
                         size={3}
                         className='mdi'
-                        fill={props.fill} />
+                        fill={props.role.fill} />
                 </div>
-            </a>
-            <div className="card-title">{props.label}</div>
-        </div>
+            </Link>
+            <div className="card-title">{props.role.label}</div>
+        </div >
 
     )
 }

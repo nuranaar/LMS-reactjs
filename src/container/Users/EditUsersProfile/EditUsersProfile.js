@@ -6,14 +6,7 @@ import Button from '../../../component/UI/Button/Button';
 import DataEdit from '../../ProfileDataEdit/DataEdit/DataEdit';
 import { withRouter } from 'react-router';
 
-import { matchPath } from "react-router";
-
-const match = matchPath("/users/123", {
-  path: "/users/:id",
-  exact: true,
-  strict: false
-});
- class EditUsersProfile extends React.Component {
+class EditUsersProfile extends React.Component {
      
     state = {
         rols: [{
@@ -129,7 +122,7 @@ const match = matchPath("/users/123", {
                 <div className="col-lg-12">
                     <div className="body" id="profile-edit">
                         <div className="body-head d-flex justify-content-between">
-                            <p className="title">İstifadəçi məlumatının redaktəsi</p>
+                            <p className="title">İstifadəçi məlumatının redaktəsi {this.props.match.params.id}</p>
                         </div>
                         <form className="datas mt-6 pb-6" onSubmit={this.modalContentHandler} data-target={data_target}>
                             <div className="row">

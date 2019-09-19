@@ -9,6 +9,7 @@ import LessonsPage from '../../container/LessonsPage/LessonsPage';
 import UserPage from '../UsersPage/UserPage';
 import EditUsersProfile from '../../container/Users/EditUsersProfile/EditUsersProfile';
 import UserRolesPage from '../../container/UserRolesPage/UserRolesPage';
+import RoleInfo from '../../container/UserRolesPage/RoleInfo/RoleInfo';
 
 export default function MainPage(props) {
     return (
@@ -20,9 +21,10 @@ export default function MainPage(props) {
                     <Header />
                     <Route path='/profile' render={() => <ProfilePage />} />
                     <Route path='/lessons' render={() => <LessonsPage />} />
-                    <Route  path='/users' render={() => <UserPage />} />
-                    <Route  path={`/users/:id`} component={EditUsersProfile}  />
-                    <Route  path={`/roles`} component={UserRolesPage}  />
+                    <Route path='/users' render={() => <UserPage />} />
+                    <Route path={`/users/:id`} component={EditUsersProfile} />
+                    <Route path={`/roles`} exact component={UserRolesPage} />
+                    <Route path={`/roles/:roleName`} component={RoleInfo} />
 
                 </main>
             </div>
