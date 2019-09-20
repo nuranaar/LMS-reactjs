@@ -19,6 +19,8 @@ export default function MainPage(props) {
                 <SideBar />
                 <main className="col-lg-12  w-100">
                     <Header />
+
+                    
                     <Route path='/profile' render={() => <ProfilePage />} />
                     <Route path='/lessons' render={() => <LessonsPage />} />
                     <Route path='/users' render={() => <UserPage />} />
