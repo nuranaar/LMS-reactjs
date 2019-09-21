@@ -106,10 +106,12 @@ export default class UserRolesPage extends Component {
                             <Button class='btn add-role' clicked={this.addUserRoleClickHandler}> Rol yarat</Button>
                         </div>
                         <div className='roles'>
+<div className='row'>
 
                             {this.state.rols.map(role => {
                                 return <UserRole key={role.id} role={role} clickEdit={this.editClickHandler} clickDelete={this.deleteClickHandler} />;
                             })}
+                            </div>
                         </div>
                     </div>
                 </div>

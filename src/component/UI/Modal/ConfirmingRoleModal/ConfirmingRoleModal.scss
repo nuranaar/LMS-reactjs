@@ -1,0 +1,14 @@
+.confirming-operations,
+.confirming-roles {
+  .check {
+    label {
+      display: flex;
+      font-size: 14px;
+      font-weight: 500;
+      margin: 14px 0;
+      svg.mdi{
+        margin-bottom: 3px;
+      }
+    }
+  }
+}

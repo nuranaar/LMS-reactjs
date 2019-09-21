@@ -2,16 +2,21 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
 import Icon from '@mdi/react';
-import { mdiMagnify, mdiDelete, mdiPencil } from '@mdi/js';
+import { mdiMagnify, mdiDelete, mdiPencil, mdiCheckBold, mdiPlusCircle, mdiKeyboardBackspace } from '@mdi/js';
 import Button from '../../../component/UI/Button/Button';
 import './RoleInfo.scss';
 import UserDeleteConfirmModal from '../../../component/UI/Modal/UserDeleteConfirmModal/UserDeleteConfirmModal';
+import userpp from '../../../assets/img/users/user.jpg';
+import { set } from 'date-fns';
+import ConfirmingRoleModal from '../../../component/UI/Modal/ConfirmingRoleModal/ConfirmingRoleModal';
 
 class RoleInfo extends Component {
     state = {
-        showUsers: true,
-        showDeleteConfirm: false
+        showUsers: false,
+        showDeleteConfirm: false,
+        showConfirmingRoleModal: true
     }
+
     usersSelectedHandler = () => {
         this.setState({
             showUsers: true
@@ -32,20 +37,191 @@ class RoleInfo extends Component {
             showDeleteConfirm: false
         })
     }
+    changeHandler = (e) => {
+        console.log(e.currentTarget.parentNode.parentNode)
+    }
+    addConfirmingRoleHandler = () => {
+        let show = !this.state.showConfirmingRoleModal;
+        this.setState({
+            showConfirmingRoleModal: show
+        })
+    }
+    closeConfirmingRoleModal = () => {
+        this.setState({
+            showConfirmingRoleModal: false
+        })
+    }
     render() {
         let deleteConfirmModal;
+        let confirmingRoleModal;
         if (this.state.showDeleteConfirm) {
             deleteConfirmModal = <UserDeleteConfirmModal
                 isOpen={this.state.showDeleteConfirm}
                 closeModal={this.closeDeleteConfirmModal}
-                id='delete_confirm_modal'
             />
+        }
+        if (this.state.showConfirmingRoleModal) {
+            confirmingRoleModal = <ConfirmingRoleModal
+                isOpen={this.state.showConfirmingRoleModal}
+                closeModal={this.closeConfirmingRoleModal}
+            />
+        }
+        let table;
+        if (this.state.showUsers) {
+            table = <table className='users'>
+                <thead>
+                    <tr>
+                        <th>İstifadəçilər</th>
+                        <th>Email</th>
+                        <th>Digər rollar</th>
+                        <th>Əməliyyat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-id='1'>
+                        <td>
+                            <img src={userpp} alt='user' />
+                            Yolchu Nasib
+            </td>
+                        <td>yolchu@code.edu.az</td>
+                        <td>Müəllim</td>
+                        <td>
+                            <div className="operations">
+                                <Link to={{ pathname: `/users/${1}` }}>
+                                    <div className='edit' onClick={this.editClickHandler} data-id='1'>
+                                        <Icon path={mdiPencil} size={.8} className='mdi' />
+                                        <div className='tooltip'>Düzəliş et</div>
+                                    </div>
+                                </Link>
+                                <div className='delete' onClick={this.deleteClickHandler}>
+                                    <Icon path={mdiDelete} size={.8} className='mdi' />
+                                    <div className='tooltip'>Sil</div>
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-id='2' >
+                        <td>
+                            <img src={userpp} alt='user' />
+                            Knyaz Yaqublu
+            </td>
+                        <td>knyaz@code.edu.az</td>
+                        <td>Müəllim</td>
+                        <td>
+                            <div className="operations">
+                                <Link to={{ pathname: `/users/${2}` }}>
+                                    <div className='edit' onClick={this.editClickHandler} data-id='2'>
+                                        <Icon path={mdiPencil} size={.8} className='mdi' />
+                                        <div className='tooltip'>Düzəliş et</div>
+                                    </div>
+                                </Link>
+                                <div className='delete' onClick={this.deleteClickHandler}>
+                                    <Icon path={mdiDelete} size={.8} className='mdi' />
+                                    <div className='tooltip'>Sil</div>
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        }
+        else {
+            table = <table className='users'>
+                <thead>
+                    <tr>
+                        <th>İmtiyazlar</th>
+                        <th>Görsün</th>
+                        <th>Redaktə etsin</th>
+                        <th>Yaratsın</th>
+                        <th>Silsin</th>
+                        <th>Təsdiq edən rol</th>
+                        <th>Əməliyyatlar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-id='1'>
+                        <td>
+                            Profil
+                        </td>
+                        <td>
+                            <div className='check active'>
+                                <label htmlFor={this.props.text}>
+                                    <input type='checkbox' id={this.props.text} style={{ 'display': 'none' }} onChange={this.changeHandler} />
+                                    <div className='checkbox'>
+                                        <Icon className='mdi' path={mdiCheckBold} size={.45} />
+                                    </div>
+                                    {this.props.text}
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div className='check'>
+                                <label htmlFor={this.props.text}>
+                                    <input type='checkbox' id={this.props.text} style={{ 'display': 'none' }} onChange={this.props.change} />
+                                    <div className='checkbox'>
+                                        <Icon className='mdi' path={mdiCheckBold} size={.45} />
+                                    </div>
+                                    {this.props.text}
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div className='check'>
+                                <label htmlFor={this.props.text}>
+                                    <input type='checkbox' id={this.props.text} style={{ 'display': 'none' }} onChange={this.props.change} />
+                                    <div className='checkbox'>
+                                        <Icon className='mdi' path={mdiCheckBold} size={.45} />
+                                    </div>
+                                    {this.props.text}
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div className='check'>
+                                <label htmlFor={this.props.text}>
+                                    <input type='checkbox' id={this.props.text} style={{ 'display': 'none' }} onChange={this.props.change} />
+                                    <div className='checkbox'>
+                                        <Icon className='mdi' path={mdiCheckBold} size={.45} />
+                                    </div>
+                                    {this.props.text}
+                                </label>
+                            </div>
+                        </td>
+                        <td className='d-flex align-items-center'>
+                            Yoxdur
+                            <div className="operations">
+                                <div className='add' onClick={this.addConfirmingRoleHandler}>
+                                    <Icon path={mdiPlusCircle} size={.8} className='mdi' />
+                                    <div className='tooltip'>Təsdiq edən rol əlavə et</div>
+
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div className="operations">
+                                <div className='delete ml-7' onClick={this.deleteClickHandler}>
+                                    <Icon path={mdiDelete} size={.8} className='mdi' />
+                                    <div className='tooltip'>Sil</div>
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
         }
         return (
             <div className='page-body'>
                 <div className="col-lg-12">
                     <div className="body" id="profile-edit">
                         <div className="body-head d-flex align-items-center">
+                            <Link to='/roles'>
+                                <Icon path={mdiKeyboardBackspace} size={1} className='mdi toback' />
+                            </Link>
                             <p className="title">{this.props.match.params.roleName} rol</p>
                             <div className='search'>
                                 <input className='search-input' type='text' placeholder='Ad və ya emailə görə axtar' />
@@ -55,75 +231,16 @@ class RoleInfo extends Component {
                                 <div onClick={this.usersSelectedHandler} className={['item', this.state.showUsers ? 'active' : ''].join(' ')}>İstifadəçilər</div>
                                 <div onClick={this.privelegesSelectedHandler} className={['item', !this.state.showUsers ? 'active' : ''].join(' ')}>İmtiyazlar</div>
                             </div>
-                            {this.state.showUsers ? <Button class='btn add-user' clicked={this.addUserClickHandler}>İstifadəçilər əlavə et</Button> : <Button class='btn add-user' clicked={this.addUserClickHandler}>İmtiyaz əlavə et</Button>}
+                            {this.state.showUsers ? <Button class='btn add-user' clicked={this.addUserClickHandler}>İstifadəçi əlavə et</Button> : <Button class='btn add-user' clicked={this.addUserClickHandler}>İmtiyaz əlavə et</Button>}
 
                         </div>
                         <div className="datas mt-3 pb-6">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>İstifadəçilər</th>
-                                        <th>Email</th>
-                                        <th>Digər rollar</th>
-                                        <th>Əməliyyat</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr data-id='1'>
-                                        <td>
-                                            {/* <img src={userpp} alt='user' /> */}
-                                            Rizvan Bağırlı
-                                            </td>
-                                        <td>rizvan@code.edu.az</td>
-                                        <td>Müəllim</td>
-                                        <td>
-                                            <div className="operations">
-                                                {/* <Link to={{ pathname: '/users/edit', search: { id: this.state.selectedForEditId } }}> */}
-                                                <Link to={{ pathname: `/users/${1}` }}>
-                                                    <div className='edit' onClick={this.editClickHandler} data-id='1'>
-                                                        {/* <div className='edit'> */}
-                                                        <Icon path={mdiPencil} size={.8} className='mdi' />
-                                                        <div className='tooltip'>Düzəliş et</div>
-                                                    </div>
-                                                </Link>
-                                                <div className='delete' onClick={this.deleteClickHandler}>
-                                                    <Icon path={mdiDelete} size={.8} className='mdi' />
-                                                    <div className='tooltip'>Sil</div>
-
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr data-id='2' >
-                                        <td>
-                                            {/* <img src={userpp} alt='user' /> */}
-                                            Knyaz Yaqublu
-                                            </td>
-                                        <td>knyaz@code.edu.az</td>
-                                        <td>Müəllim</td>
-                                        <td>
-                                            <div className="operations">
-                                                <Link to={{ pathname: `/users/${2}` }}>
-                                                    <div className='edit' onClick={this.editClickHandler} data-id='2'>
-                                                        {/* <div className='edit'> */}
-                                                        <Icon path={mdiPencil} size={.8} className='mdi' />
-                                                        <div className='tooltip'>Düzəliş et</div>
-                                                    </div>
-                                                </Link>
-                                                <div className='delete' onClick={this.deleteClickHandler}>
-                                                    <Icon path={mdiDelete} size={.8} className='mdi' />
-                                                    <div className='tooltip'>Sil</div>
-
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            {table}
                         </div>
                     </div>
                 </div>
                 {deleteConfirmModal}
+                {confirmingRoleModal}
             </div>
         )
     }

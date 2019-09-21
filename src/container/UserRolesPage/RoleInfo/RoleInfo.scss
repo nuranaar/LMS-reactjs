@@ -1,10 +1,14 @@
 @import "../../../assets/css/ScssPartials/variable";
 
+.toback{
+  padding-left: 30px;
+}
 .selecting-list {
   display: flex;
   margin-left: auto;
   align-items: baseline;
   .item {
+    cursor: pointer;
     font-size: 13px;
     font-weight: 500;
     color: $title;
@@ -15,6 +19,38 @@
       background-color: #fafafa;
       border-radius: 3px;
       border: solid 1px #f2f2f2;
+    }
+  }
+}
+.check {
+  text-align: center;
+  .checkbox {
+    svg.mdi {
+      background-color: #fafafa;
+      fill: #fafafa;
+      margin-left: 0%;
+      margin-right: 20px;
+      border-radius: 2px;
+      border: solid 1px #c5c5c5;
+    }
+  }
+
+  &.active {
+    .checkbox {
+      svg.mdi {
+        background-color: $main_color;
+        border-color: $main_color;
+      }
+    }
+  }
+}
+.operations {
+  .add {
+    margin-left: 16px;
+    &:hover {
+      svg.mdi {
+        fill: $main_color !important;
+      }
     }
   }
 }
