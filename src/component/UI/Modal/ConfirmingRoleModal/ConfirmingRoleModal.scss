@@ -6,9 +6,16 @@
       font-size: 14px;
       font-weight: 500;
       margin: 14px 0;
-      svg.mdi{
+      cursor: pointer;
+      svg.mdi {
         margin-bottom: 3px;
       }
     }
   }
+}
+#confirming-role .add-user-input{
+  justify-content: start;
+  position: relative;
+  padding: 0;
+  padding-top: 30px;
 }

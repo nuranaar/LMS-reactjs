@@ -11,9 +11,13 @@
 .popup-header {
     text-align: left !important;
 }
-
+#add-user-modal{
+    .popup-body{
+        padding-bottom: 50px;
+    }
+}
 .popup-body {
-    padding: 24px 30px 50px;
+    padding: 24px 30px;
     position: relative;
 
     .input-add {

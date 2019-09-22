@@ -41,7 +41,7 @@ export default class AddUserModal extends React.Component {
             icon = <Icon path={mdiClose} size={.8} className='mdi' />
         }
         return (
-            <div className={["popups", this.props.isOpen ? "open" : ""].join(" ")}>
+            <div className={["popups", this.props.isOpen ? "open" : ""].join(" ")} id='add-user-modal'>
                 <div onClick={this.props.closeModal} className="popup-area"></div>
                 <div className="popup ">
                     <div className="close" onClick={this.props.closeModal}>

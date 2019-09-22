@@ -321,6 +321,7 @@ video {
 	z-index: 15;
 	overflow: auto;
 	max-height: 95vh;
+	min-width: 33%;
 }
 .popups {
 	display: none;
