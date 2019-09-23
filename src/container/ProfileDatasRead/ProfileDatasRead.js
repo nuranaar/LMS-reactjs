@@ -65,7 +65,7 @@ export default class ProfileDatasRead extends React.Component {
                     <div className="body" id="profile">
                         <div className="body-head d-flex justify-content-between">
                             <p className="title">Şəxsi məlumat</p>
-                            <Link to='profile/edit' className="btn btn-edit ">
+                            <Link to='profile/edit' className=" btn-edit ">
                                 <Icon path={mdiPencil}
                                     size={.9} className='mdi' />
                                 Redaktə

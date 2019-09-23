@@ -1,0 +1,28 @@
+@import "../../../assets/css/ScssPartials/variable";
+@import "../../../assets/css/ScssPartials/common";
+
+.dropdown-list {
+  box-shadow: 0 2px 6px 0px #3a3a3a15;
+  border-radius: 5px;
+  border: solid 1px #f2f2f2;
+  padding: 10px;
+  height: 120px;
+  overflow-y: auto;
+  margin-top: 8px;
+  @extend %scroll;
+  .dropdown-item {
+    .title {
+      padding: 15px;
+      font-size: 16px;
+      font-weight: 800;
+    }
+    .option {
+      padding: 7px 15px;
+      font-size: 14px;
+      font-weight: 500;
+      &:hover {
+        background-color: #f9f9f9;
+      }
+    }
+  }
+}

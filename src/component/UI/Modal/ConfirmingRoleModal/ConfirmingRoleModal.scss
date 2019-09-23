@@ -13,9 +13,13 @@
     }
   }
 }
-#confirming-role .add-user-input{
+#confirming-role .add-user-input {
   justify-content: start;
   position: relative;
   padding: 0;
-  padding-top: 30px;
+  top: 10px;
+}
+.accordion__item,
+.accordion__panel {
+  border-color:#fff !important;
 }

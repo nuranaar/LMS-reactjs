@@ -91,9 +91,9 @@ export default class LessonsPage extends React.Component {
                                 }
                             })}
                             <div className="col-md-8">
-                                {/* <StudentStatistics/> */}
+                                <StudentStatistics/>
                                 <TeacherStatistic />
-                                {/* <ManagerStatistic /> */}
+                                <ManagerStatistic />
                             </div>
                             <div className="col-md-4">
                                 <LastPosts />

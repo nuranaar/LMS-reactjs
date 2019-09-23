@@ -160,7 +160,8 @@ export default class LastLessonsCard extends React.Component {
                                         </li>
                                     </ul>
                                 </AccordionItemPanel>
-                            </AccordionItem>  </Accordion>
+                            </AccordionItem>
+                        </Accordion>
                     </div>
                 </div>
             </div>

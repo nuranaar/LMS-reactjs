@@ -129,7 +129,7 @@ class RoleInfo extends Component {
 
         }
         else {
-            table = <table className='users'>
+            table = <table className='privileges'>
                 <thead>
                     <tr>
                         <th>İmtiyazlar</th>

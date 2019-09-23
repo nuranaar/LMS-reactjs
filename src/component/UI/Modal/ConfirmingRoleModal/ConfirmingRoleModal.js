@@ -1,8 +1,16 @@
-import React, { Component } from 'react'
-import Icon from '@mdi/react'
-import { mdiClose, mdiCheckBold, mdiPlus } from '@mdi/js'
-import Button from '../../Button/Button'
-import "./ConfirmingRoleModal.scss"
+import React, { Component } from 'react';
+import Icon from '@mdi/react';
+import { mdiClose, mdiCheckBold, mdiPlus } from '@mdi/js';
+import Button from '../../Button/Button';
+import "./ConfirmingRoleModal.scss";
+import {
+    Accordion,
+    AccordionItem,
+    AccordionItemHeading,
+    AccordionItemButton,
+    AccordionItemPanel,
+} from 'react-accessible-accordion';
+import UsersDropdown from '../../UsersDropdown/UsersDropdown';
 
 export default class ConfirmingRoleModal extends Component {
     state = {
@@ -40,7 +48,9 @@ export default class ConfirmingRoleModal extends Component {
                 active: false
             }
         ],
-        showInput: false
+        showInput: false,
+        count: 0,
+        inputs: []
     }
     roleSelectHandler = (e) => {
         let selId = e.currentTarget.id;
@@ -61,29 +71,55 @@ export default class ConfirmingRoleModal extends Component {
         })
     }
     addInputClickHanler = () => {
+        let inputs = [...this.state.inputs];
+        let count = ++this.state.count;
+        for (let i = count; i <= count; i++) {
+            let id = new Date().getMilliseconds();
+            inputs.push(id);
+        }
         this.setState({
-            showInput: true
+            count: count,
+            showInput: true,
+            inputs: inputs
         })
     }
-    deleteInputClickHanler = () => {
+    deleteInputClickHanler = (e) => {
+        let deletedId = e.currentTarget.dataset.id;
+        let inputs = this.state.inputs.filter(input => input != deletedId);
+        let count = --this.state.count;
+        let show = true;
+        if (count === 0) {
+            show = false;
+        }
         this.setState({
-            showInput: false
+            count: count,
+            inputs: inputs,
+            showInput: show
         })
     }
+
     render() {
         let add_user;
         if (this.state.showInput) {
             add_user = <> <label className='label'>Təsdiq edən istifadəçi</label>
-                <div className='input-add'>
-                    <input type='text' placeholder='numunə@.code.edu.az' />
-                    <div className='del-input' onClick={this.deleteInputClickHanler} ><Icon path={mdiClose} size={.8} className='mdi' /></div>
-                </div>
+                <Accordion allowZeroExpanded={true}>
+                    {this.state.inputs.map(input => {
+                        return <AccordionItem key={input} style={{ borderColor: '#fff' }}>
+                            <AccordionItemHeading>
+                                <AccordionItemButton>
+                                    <div className='input-add'>
+                                        <input data-id={input} type='text' placeholder='numunə@.code.edu.az' />
+                                        <div className='del-input' onClick={this.deleteInputClickHanler} data-id={input} ><Icon path={mdiClose} size={.8} className='mdi' /></div>
+                                    </div>
+                                </AccordionItemButton>
+                            </AccordionItemHeading>
+                            <AccordionItemPanel style={{ borderColor: '#fff', padding:0 }}>
+                                <UsersDropdown/>
+                            </AccordionItemPanel>
+                        </AccordionItem>
+                    })}
+                </Accordion>
             </>
-        } else {
-            add_user = <div className='add-user-input' onClick={this.addInputClickHanler}>
-                <Icon path={mdiPlus} size={.4} className='mdi'></Icon>
-                <p>Təsdiq edən itifadəçi əlavə et</p>
-            </div>
         }
         return (
             <div className={["popups", this.props.isOpen ? "open" : ""].join(" ")} id='confirming-role' >
@@ -125,6 +161,10 @@ export default class ConfirmingRoleModal extends Component {
                             })}
                         </div>
                         {add_user}
+                        <div className='add-user-input' onClick={this.addInputClickHanler}>
+                            <Icon path={mdiPlus} size={.4} className='mdi'></Icon>
+                            <p>Təsdiq edən itifadəçi əlavə et</p>
+                        </div>
                     </div>
                     <div className="buttons text-center">
                         <Button class="btn btn-add-user">Əlavə et</Button>

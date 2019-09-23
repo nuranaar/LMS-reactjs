@@ -50,6 +50,7 @@ a {
 a:hover {
 	color: #3a3a3a;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 p,
@@ -83,10 +84,11 @@ hr {
 	padding: 16px 0px;
 	text-align: center;
 	border: none;
+	transition: all .5s;
 }
 .btn:hover{
-	background-color: #0286cd;
-	color:#fff;
+	background-color: #0286cd !important;
+	color:#fff !important;
 }
 .btn.btn-form {
 	padding: 20px;
@@ -322,6 +324,9 @@ video {
 	overflow: auto;
 	max-height: 95vh;
 	min-width: 33%;
+}
+.popup::-webkit-scrollbar{
+	width: 0;
 }
 .popups {
 	display: none;
