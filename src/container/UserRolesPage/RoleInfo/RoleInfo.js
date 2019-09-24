@@ -12,9 +12,28 @@ import ConfirmingRoleModal from '../../../component/UI/Modal/ConfirmingRoleModal
 
 class RoleInfo extends Component {
     state = {
-        showUsers: false,
+
+        privileges: [
+            {
+                name: 'read',
+                active: false
+            },
+            {
+                name: 'edit',
+                active: false
+            },
+            {
+                name: 'create',
+                active: false
+            },
+            {
+                name: 'update',
+                active: false
+            }
+        ],
+        showUsers: true,
         showDeleteConfirm: false,
-        showConfirmingRoleModal: true
+        showConfirmingRoleModal: false
     }
 
     usersSelectedHandler = () => {
@@ -22,7 +41,7 @@ class RoleInfo extends Component {
             showUsers: true
         })
     }
-    privelegesSelectedHandler = () => {
+    privilegesSelectedHandler = () => {
         this.setState({
             showUsers: false
         })
@@ -38,7 +57,13 @@ class RoleInfo extends Component {
         })
     }
     changeHandler = (e) => {
-        console.log(e.currentTarget.parentNode.parentNode)
+        let clicked = e.currentTarget.parentNode.parentNode.dataset.target;
+        let privs = [...this.state.privileges];
+        let priv = privs.find(pr => pr.name === clicked);
+        priv.active = !priv.active;
+        this.setState({
+            privileges: privs
+        })
     }
     addConfirmingRoleHandler = () => {
         let show = !this.state.showConfirmingRoleModal;
@@ -146,50 +171,20 @@ class RoleInfo extends Component {
                         <td>
                             Profil
                         </td>
-                        <td>
-                            <div className='check active'>
-                                <label htmlFor={this.props.text}>
-                                    <input type='checkbox' id={this.props.text} style={{ 'display': 'none' }} onChange={this.changeHandler} />
-                                    <div className='checkbox'>
-                                        <Icon className='mdi' path={mdiCheckBold} size={.45} />
-                                    </div>
-                                    {this.props.text}
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div className='check'>
-                                <label htmlFor={this.props.text}>
-                                    <input type='checkbox' id={this.props.text} style={{ 'display': 'none' }} onChange={this.props.change} />
-                                    <div className='checkbox'>
-                                        <Icon className='mdi' path={mdiCheckBold} size={.45} />
-                                    </div>
-                                    {this.props.text}
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div className='check'>
-                                <label htmlFor={this.props.text}>
-                                    <input type='checkbox' id={this.props.text} style={{ 'display': 'none' }} onChange={this.props.change} />
-                                    <div className='checkbox'>
-                                        <Icon className='mdi' path={mdiCheckBold} size={.45} />
-                                    </div>
-                                    {this.props.text}
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div className='check'>
-                                <label htmlFor={this.props.text}>
-                                    <input type='checkbox' id={this.props.text} style={{ 'display': 'none' }} onChange={this.props.change} />
-                                    <div className='checkbox'>
-                                        <Icon className='mdi' path={mdiCheckBold} size={.45} />
-                                    </div>
-                                    {this.props.text}
-                                </label>
-                            </div>
-                        </td>
+                        {this.state.privileges.map(priv => {
+                            return <td key={priv.name}>
+                                <div data-target={priv.name} className={['check', priv.active ? 'active' : ''].join(' ')}>
+                                    <label htmlFor={this.props.text}>
+                                        <input type='checkbox' id={this.props.text} style={{ 'display': 'none' }} onChange={this.changeHandler} />
+                                        <div className='checkbox'>
+                                            <Icon className='mdi' path={mdiCheckBold} size={.45} />
+                                        </div>
+                                        {this.props.text}
+                                    </label>
+                                </div>
+                            </td>
+                        })}
+
                         <td className='d-flex align-items-center'>
                             Yoxdur
                             <div className="operations">
@@ -229,7 +224,7 @@ class RoleInfo extends Component {
                             </div>
                             <div className='selecting-list' >
                                 <div onClick={this.usersSelectedHandler} className={['item', this.state.showUsers ? 'active' : ''].join(' ')}>İstifadəçilər</div>
-                                <div onClick={this.privelegesSelectedHandler} className={['item', !this.state.showUsers ? 'active' : ''].join(' ')}>İmtiyazlar</div>
+                                <div onClick={this.privilegesSelectedHandler} className={['item', !this.state.showUsers ? 'active' : ''].join(' ')}>İmtiyazlar</div>
                             </div>
                             {this.state.showUsers ? <Button class='btn add-user' clicked={this.addUserClickHandler}>İstifadəçi əlavə et</Button> : <Button class='btn add-user' clicked={this.addUserClickHandler}>İmtiyaz əlavə et</Button>}
 
