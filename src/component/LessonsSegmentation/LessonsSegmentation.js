@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function LessonsSegmentation(props) {
     return (
 
-                 <div className="col-lg-3 col-sm-4 col-xs-6">
+                 <div className="col-lg-2 col-sm-4 col-xs-6">
                     <div className="segment">
                         <Link to={['lessons/', props.segment.route].join('')}>
                             <div className="icon ">

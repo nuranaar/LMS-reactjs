@@ -75,7 +75,7 @@ export default class LessonsPage extends React.Component {
             <div className="page-body" id="student-study">
                 <div className="body">
                     <section className="segmentations" id="segmentations">
-                        <div className="segments row text-center justify-content-center mt-6 ml-3 mr-3">
+                        <div className="segments row text-center justify-content-around mt-6 ml-3 mr-3">
                             {this.state.rols.filter(rol => rol.name === this.state.currentRol).map(rol => { return rol.segments.map(segment => { return <LessonsSegmentation segment={segment} key={segment.id} /> }) })}
                         </div>
                     </section>

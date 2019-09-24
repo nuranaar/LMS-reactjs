@@ -981,11 +981,11 @@ video {
 	color: #3a3a3a;
 	margin-bottom: 64px;
 }
-
+/* 
 #segmentations .segments {
 	-ms-flex-wrap: nowrap;
 	flex-wrap: nowrap;
-}
+} */
 
 #segmentations .segments .segment {
 	width: 200px;

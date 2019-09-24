@@ -75,7 +75,7 @@ export default class ConfirmingRoleModal extends Component {
         let count = ++this.state.count;
         for (let i = count; i <= count; i++) {
             let id = new Date().getMilliseconds();
-            inputs.push(id);
+            inputs.push({ id, value: '', showDropdown: false });
         }
         this.setState({
             count: count,
@@ -83,9 +83,49 @@ export default class ConfirmingRoleModal extends Component {
             inputs: inputs
         })
     }
-    deleteInputClickHanler = (e) => {
-        let deletedId = e.currentTarget.dataset.id;
-        let inputs = this.state.inputs.filter(input => input != deletedId);
+    inputFocusedHandler = (e, id) => {
+        let inputs = [...this.state.inputs];
+        let otherInputs = inputs.filter(input => input.id !== id);
+        otherInputs.map(oi => oi.showDropdown = false);
+        let input = inputs.find(input => input.id === id);
+        input.showDropdown = true;
+        this.setState({
+            inputs: inputs
+        })
+    }
+    inputChangedHandler = (e, id) => {
+        let value = e.currentTarget.value;
+        let inputs = [...this.state.inputs];
+        let input = inputs.find(input => input.id === id);
+        input.showDropdown = true;
+        input.value = value;
+        this.setState({
+            inputs: inputs
+        })
+    }
+    // userSelectedHandler = (e, id) => {
+    //     let value = e.currentTarget.innerText;
+    //     let inputs = [...this.state.inputs];
+    //     let input = inputs.find(input => input.id === id);
+    //     input.value = "";
+    //     // input.value = value;
+    //     input.showDropdown = false;
+    //     this.setState({
+    //         inputs: inputs
+    //     })
+    // }
+    inputBlurredHandler = (e) => {
+        // let id = parseInt(e.currentTarget.dataset.id);
+        // let inputs = [...this.state.inputs];
+        // let input = inputs.find(input => input.id === id);
+        // input.showDropdown = false;
+        // this.setState({
+        //     inputs: inputs
+        // })
+    }
+
+    deleteInputClickHanler = (e, deletedId) => {
+        let inputs = this.state.inputs.filter(input => input.id != deletedId);
         let count = --this.state.count;
         let show = true;
         if (count === 0) {
@@ -102,23 +142,15 @@ export default class ConfirmingRoleModal extends Component {
         let add_user;
         if (this.state.showInput) {
             add_user = <> <label className='label'>Təsdiq edən istifadəçi</label>
-                <Accordion allowZeroExpanded={true}>
-                    {this.state.inputs.map(input => {
-                        return <AccordionItem key={input} style={{ borderColor: '#fff' }}>
-                            <AccordionItemHeading>
-                                <AccordionItemButton>
-                                    <div className='input-add'>
-                                        <input data-id={input} type='text' placeholder='numunə@.code.edu.az' />
-                                        <div className='del-input' onClick={this.deleteInputClickHanler} data-id={input} ><Icon path={mdiClose} size={.8} className='mdi' /></div>
-                                    </div>
-                                </AccordionItemButton>
-                            </AccordionItemHeading>
-                            <AccordionItemPanel style={{ borderColor: '#fff', padding:0 }}>
-                                <UsersDropdown/>
-                            </AccordionItemPanel>
-                        </AccordionItem>
-                    })}
-                </Accordion>
+                {this.state.inputs.map(input => {
+                    return <div key={input.id}>
+                        <div className='input-add'>
+                            <input type='text' placeholder='numunə@.code.edu.az' defaultValue={input.value} onFocus={(e) => this.inputFocusedHandler(e, input.id)} onChange={(e) => this.inputChangedHandler(e, input.id)} />
+                            <div className='del-input' onClick={(e) => this.deleteInputClickHanler(e, input.id)} data-id={input} ><Icon path={mdiClose} size={.8} className='mdi' /></div>
+                        </div>
+                        {(input.showDropdown) ? <UsersDropdown selected={(e) => this.userSelectedHandler(e, input.id)} /> : ''}
+                    </div>
+                })}
             </>
         }
         return (
