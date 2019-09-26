@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function VacationsCard(props) {
     return (
-        <div className="col-md-12">
+        <div className="col-12">
             <div className="statistic-item statistic-card groups-date">
                 <div className="card-head">
                     <div className="card-title">{props.title}</div>

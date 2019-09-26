@@ -13,7 +13,7 @@ import {
 export default class LastLessonsCard extends React.Component {
     render() {
         return (
-            <div className="col-md-12">
+            <div className="col-12">
                 <div className="statistic-item statistic-card">
                     <div className="card-head">
                         <div className="card-title">Dünən keçirilən dərslər</div>

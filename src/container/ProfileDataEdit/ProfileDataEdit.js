@@ -123,14 +123,14 @@ export default class ProfileDataEdit extends React.Component {
         }
         return (
             <div className="page-body" id={[this.state.currentRol, "-profile"].join("")}>
-                <div className="col-lg-12">
+                <div className="col-12">
                     <div className="body" id="profile-edit">
                         <div className="body-head d-flex justify-content-between">
                             <p className="title">Şəxsi məlumatın redaktəsi</p>
                         </div>
                         <form className="datas mt-6 pb-6" onSubmit={this.modalContentHandler} data-target={data_target}>
                             <div className="row">
-                                <div className="col-lg-3 text-center">
+                                <div className="col-3 text-center">
                                     <label htmlFor="photo">
                                         <div className="photo">
                                             <img className="user-photo" src={profile_photo} alt="" />
@@ -141,7 +141,7 @@ export default class ProfileDataEdit extends React.Component {
                                     <input type="file" id="photo" style={display} />
                                     <a className="btn btn-del-photo" href="#">Profil şəklini sil</a>
                                 </div>
-                                <div className="col-lg-9">
+                                <div className="col-9">
                                     {this.state.rols.filter(role => role.name === this.state.currentRol).map(role => {
                                         return role.datas.map(data => {
                                             return <DataEdit data={data} key={data.id} />

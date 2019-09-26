@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function InfoCard(props) {
     return (
-        <div className="col-md-12 ">
+        <div className="col-12 ">
             <div className="statistic-item statistic-info">
                 <div className="row align-items-center">
                     <div className="col-7">

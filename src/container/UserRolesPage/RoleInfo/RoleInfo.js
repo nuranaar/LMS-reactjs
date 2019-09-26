@@ -211,7 +211,7 @@ class RoleInfo extends Component {
         }
         return (
             <div className='page-body'>
-                <div className="col-lg-12">
+                <div className="col-12">
                     <div className="body" id="profile-edit">
                         <div className="body-head d-flex align-items-center">
                             <Link to='/roles'>

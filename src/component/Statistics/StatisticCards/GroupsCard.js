@@ -3,7 +3,7 @@ import DatePickerManager from '../../UI/Datepicker/DatePickerManager';
 
 export default function GroupsCard(props) {
     return (
-        <div className="col-md-12">
+        <div className="col-12">
             <div className="statistic-item statistic-card groups-date">
                 <div className="card-head">
                     <div className="card-title">{props.title}</div>

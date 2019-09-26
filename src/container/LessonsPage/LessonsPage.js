@@ -83,19 +83,19 @@ export default class LessonsPage extends React.Component {
                         <div className="row">
                             {this.state.rols.filter(rol => rol.name === this.state.currentRol).map(rol => {
                                 if (rol.groups.length) {
-                                    return <div className="group-pagination col-md-12" key={rol.name}>
+                                    return <div className="group-pagination col-12" key={rol.name}>
                                         <div className='prev' onClick={this.state.group_index === 0 ? null : this.prevGroup}> <Icon path={mdiChevronLeft} className={['mdi', this.state.group_index === 0 ? 'disabled' : null].join(' ')} size={1} /></div>
                                         <p className="group">{rol.groups[this.state.group_index]}</p>
                                         <div className='next' onClick={this.state.group_index === (rol.groups.length - 1) ? null : this.nextGroup}>  <Icon path={mdiChevronRight} className={['mdi', this.state.group_index === (rol.groups.length - 1) ? 'disabled' : null].join(' ')} size={1} /></div>
                                     </div>
                                 }
                             })}
-                            <div className="col-md-8">
+                            <div className="col-9">
                                 <StudentStatistics/>
                                 <TeacherStatistic />
                                 <ManagerStatistic />
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-3">
                                 <LastPosts />
                                 <div className="notepad">
                                     <textarea name="" id=""

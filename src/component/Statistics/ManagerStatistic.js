@@ -8,12 +8,12 @@ import LastLessonsCard from './StatisticCards/LastLessonsCard';
 export default function ManagerStatistic() {
     return (
         <div className="statistics-list row">
-            <div className="col-md-6">
+            <div className="col-6">
                 <MultiplyChart />
                 <GroupsCard title='Başlayacaq dərslər' />
                 <LastLessonsCard/>
             </div>
-            <div className="col-md-6">
+            <div className="col-6">
                 <ToDoCard text='Quiz imtahan keçiriləcək, Ev tapşırıqları yoxlansın' />
                 <GroupsCard title='Bitəcək dərslər' />
                 <VacationsCard title='Tətildə olan müəllimlər' />

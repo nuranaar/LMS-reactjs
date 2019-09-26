@@ -17,7 +17,7 @@ export default function MainPage(props) {
             <img className="header-gradient" src={gradient} alt="" />
             <div className="row flex-nowrap">
                 <SideBar />
-                <main className="col-lg-12  w-100">
+                <main className="col-12">
                     <Header />
 
                     

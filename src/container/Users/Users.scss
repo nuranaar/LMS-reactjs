@@ -37,8 +37,10 @@
 
       .filter-list {
         visibility: hidden;
-
+        transition: all 0.4s;
+        opacity: 0;
         &.show {
+          opacity: 1;
           visibility: visible;
         }
 
@@ -58,10 +60,14 @@
             margin: 7px 0;
             font-size: 14px;
             font-weight: 500;
-
+            transition: all 0.3s;
             label {
+              cursor: pointer;
               display: flex;
               align-items: flex-end;
+            }
+            &:hover {
+              background-color: #f5f5f5 !important;
             }
 
             .checkbox {

@@ -1060,9 +1060,8 @@ video {
 }
 
 #menu .menu-cards {
-  -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
-  align-self: center;
+margin-top: 4vw;
+align-content: baseline;
 }
 
 #menu .menu-cards .card {
@@ -1538,9 +1537,9 @@ nav.menu-bar .nav-list .nav-item .nav-text {
   height: max-content;
 }
 .page-body #segmentations .segments .segment {
-  padding: 32px 0;
-  height: 90%;
-  width: 90%;
+  padding: 3% 0;
+    height: fit-content;
+    width: 17%;
 }
 
 .page-body #segmentations .segments .segment .icon {
@@ -1591,14 +1590,14 @@ nav.menu-bar .nav-list .nav-item .nav-text {
   padding-right: 5px;
   border-radius: 6px;
   background-color: #f8f8f8;
-  margin: 30px 15px;
+  margin: 5% 2.5%;
   -webkit-transition: margin 0.2s;
   transition: margin 0.2s;
 }
 
 .page-body #statistics .statistics-list .statistic-item .title {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: bold;
   color: #656565;
 }
 
@@ -1621,12 +1620,12 @@ nav.menu-bar .nav-list .nav-item .nav-text {
   width: 100px;
   height: 100px;
   position: relative;
-  bottom: 8px;
-  margin-left: 8px;
+  bottom: 18px;
+  margin: auto;
 }
 
 .page-body #statistics .statistics-list .chart.multiply-chart {
-  bottom: 14px;
+  bottom: 22px;
 }
 .page-body #statistics .statistics-list .chart.multiply-chart .percent {
   top: 47%;
@@ -1643,7 +1642,7 @@ nav.menu-bar .nav-list .nav-item .nav-text {
   font-weight: 500;
   color: #a0a0a0;
   position: relative;
-  bottom: 3px;
+  bottom: 5px;
 }
 .page-body #statistics .statistics-list .statistic-item.statistic-status .chart-info {
   margin-left: 10px;
@@ -1659,11 +1658,11 @@ nav.menu-bar .nav-list .nav-item .nav-text {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding-bottom: 9px;
+  padding-bottom: 8px;
 }
 
 .page-body #statistics .statistics-list .statistic-item.statistic-status .status-list .status .sum {
-  margin: auto;
+  /* margin: auto; */
   font-size: 16px;
   font-weight: 800;
 }
@@ -1685,7 +1684,7 @@ nav.menu-bar .nav-list .nav-item .nav-text {
 }
 
 .page-body #statistics .notepad {
-  margin: 15px;
+  margin: 6%;
 }
 
 .page-body #statistics .notepad textarea {
@@ -1731,7 +1730,7 @@ nav.menu-bar .nav-list .nav-item .nav-text {
 .page-body #statistics .blogs {
   -webkit-box-shadow: 0 0 10px 0 #99a9be37;
   box-shadow: 0 0 10px 0 #99a9be37;
-  margin: 15px;
+  margin: 6%;
   border-radius: 6px;
   position: relative;
 }

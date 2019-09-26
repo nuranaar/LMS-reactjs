@@ -61,7 +61,7 @@ export default class ProfileDatasRead extends React.Component {
     render() {
         return (
             <div className="page-body" id={[this.state.currentRol, "-profile"].join("")}>
-                <div className="col-lg-12">
+                <div className="col-12">
                     <div className="body" id="profile">
                         <div className="body-head d-flex justify-content-between">
                             <p className="title">Şəxsi məlumat</p>
@@ -73,12 +73,12 @@ export default class ProfileDatasRead extends React.Component {
                         </div>
                         <div className="datas mt-6 pb-6">
                             <div className="row">
-                                <div className="col-lg-3">
+                                <div className="col-3">
                                     <div className="photo">
                                         <img className="user-photo" src={profile_photo} alt="" />
                                     </div>
                                 </div>
-                                <div className="col-lg-9">
+                                <div className="col-9">
                                     {this.state.rols.filter(rol => rol.name === this.state.currentRol).map(rol => {
                                         return rol.datas.map(data => {
                                             return <DataRead data={data} key={data.id} />

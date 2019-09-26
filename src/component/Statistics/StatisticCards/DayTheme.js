@@ -3,7 +3,7 @@ import DatePickerTeacher from '../../UI/Datepicker/DatePickerTeacher';
 
 export default function DayTheme(props) {
     return (
-        <div className="col-md-12">
+        <div className="col-12">
             <div className="statistic-item statistic-card">
                 <div className="card-head">
                     <div className="card-title">Günün mövzusu</div>

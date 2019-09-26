@@ -11,7 +11,7 @@ export default function UserRole(props) {
 
 
     return (
-        <div className='col-lg-3'>
+        <div className='col-3'>
             <div className="role-card"  >
                 <div className='operations'>
                     <div className='operation delete' data-id={props.role.id} onClick={props.role.clickDelete}><Icon path={mdiDelete}

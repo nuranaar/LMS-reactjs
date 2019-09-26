@@ -13,15 +13,15 @@ export default function Footer() {
 
             <div className="row align-items-center p-3">
 
-                <div className="col-lg-5 copywriter">
+                <div className="col-5 copywriter">
                     © 2015 - 2019. Code Academy — Bütün hüquqlar qorunur.
                 </div>
-                <div className="col-lg-3">
+                <div className="col-3">
                     <div className="logo">
                         <img className="CA-Copy" src={logo} alt="logo"/>
                     </div>
                 </div>
-                <div className="col-lg-4">
+                <div className="col-4">
                     <ul className="link-list">
                         <li className="link-item"><a href="#"><Icon path={mdiFacebook} size={1} className='mdi'/></a></li>
                         <li className="link-item"><a href="#"><Icon path={mdiTwitter} size={1} className='mdi'/></a></li>

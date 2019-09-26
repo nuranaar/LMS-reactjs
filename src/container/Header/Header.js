@@ -96,7 +96,7 @@ export default class Header extends Component {
         </div >
 
         return (
-            <header className="col-lg-12 header">
+            <header className="col-12 header">
                 <div className="head-right">
                     <div className="search">
                         <a href="#">

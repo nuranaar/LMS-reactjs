@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Doughnut, Pie } from 'react-chartjs-2';
+import { Pie } from 'react-chartjs-2';
 
 export default class MultiplyChart extends Component {
     state = {
@@ -36,7 +36,7 @@ export default class MultiplyChart extends Component {
     }
     render() {
         return (
-            <div className="col-md-12 ">
+            <div className="col-12 ">
                 <div className="statistic-item statistic-status">
                     <div className="row align-items-center">
                         <div className="col-7">
@@ -80,7 +80,7 @@ export default class MultiplyChart extends Component {
                                 </li>
                             </ul>
                         </div>
-                        <div className="col-5 ml">
+                        <div className="col-5 text-center">
                             <div className="chart multiply-chart" >
                                 <Pie
                                     width={110}
