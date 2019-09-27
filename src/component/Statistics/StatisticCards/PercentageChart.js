@@ -22,13 +22,13 @@ export default class PercentageChart extends React.Component {
             <div className="col-12 ">
                 <div className="statistic-item statistic-chart">
                     <div className="row align-items-center">
-                        <div className="col-9">
+                        <div className="col-7">
                             <div className="title">{this.props.totalTitle}</div>
                             <p className="info">{this.props.totalValue}</p>
                             <div className="title mt-5 mb-1">{this.props.doneTitle}</div>
                             <p className="info">{this.props.doneValue}</p>
                         </div>
-                        <div className="col-3 text-center">
+                        <div className="col-5 text-center">
                             <div className="chart" >
                                 <Doughnut
                                     width={100}

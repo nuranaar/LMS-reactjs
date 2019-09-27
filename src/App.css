@@ -1544,8 +1544,8 @@ nav.menu-bar .nav-list .nav-item .nav-text {
 
 .page-body #segmentations .segments .segment .icon {
   margin: 0 auto;
-  width: 30%;
-  height: 80px;
+  width: 35%;
+  height: 60px;
 }
 
 .page-body #segmentations .segments .segment .icon img {
@@ -1638,7 +1638,7 @@ nav.menu-bar .nav-list .nav-item .nav-text {
 }
 
 .page-body #statistics .statistics-list .statistic-item .chart-info {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   color: #a0a0a0;
   position: relative;
