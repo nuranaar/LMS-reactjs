@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
 import Icon from '@mdi/react';
-import { mdiMagnify, mdiDelete, mdiPencil, mdiCheckBold, mdiPlusCircle, mdiKeyboardBackspace } from '@mdi/js';
+import { mdiMagnify, mdiDelete, mdiPencil, mdiCheckBold, mdiPlusCircle, mdiKeyboardBackspace, mdiAccount } from '@mdi/js';
 import Button from '../../../component/UI/Button/Button';
 import './RoleInfo.scss';
 import UserDeleteConfirmModal from '../../../component/UI/Modal/UserDeleteConfirmModal/UserDeleteConfirmModal';
 import userpp from '../../../assets/img/users/user.jpg';
 import { set } from 'date-fns';
 import ConfirmingRoleModal from '../../../component/UI/Modal/ConfirmingRoleModal/ConfirmingRoleModal';
+import PrivilegesRole from './PrivilegesRole/PrivilegesRole';
 
 class RoleInfo extends Component {
     state = {
@@ -31,7 +32,7 @@ class RoleInfo extends Component {
                 active: false
             }
         ],
-        showUsers: true,
+        showUsers: false,
         showDeleteConfirm: false,
         showConfirmingRoleModal: false
     }
@@ -181,11 +182,13 @@ class RoleInfo extends Component {
                                         </div>
                                         {this.props.text}
                                     </label>
+                                    <PrivilegesRole />
                                 </div>
+
                             </td>
                         })}
 
-                        <td className='d-flex align-items-center'>
+                        <td className='d-flex align-items-center justify-content-center ml-auto mr-auto' style={{ width: '100%' }}>
                             Yoxdur
                             <div className="operations">
                                 <div className='add' onClick={this.addConfirmingRoleHandler}>

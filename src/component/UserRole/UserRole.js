@@ -14,11 +14,11 @@ export default function UserRole(props) {
         <div className='col-3'>
             <div className="role-card"  >
                 <div className='operations'>
-                    <div className='operation delete' data-id={props.role.id} onClick={props.role.clickDelete}><Icon path={mdiDelete}
+                    <div className='operation delete' data-id={props.role.id} onClick={props.clickDelete}><Icon path={mdiDelete}
                         size={.7}
                         className='mdi'
                     /></div>
-                    <div className='operation edit' data-id={props.role.id} onClick={props.role.clickEdit}><Icon path={mdiPencil}
+                    <div className='operation edit' data-id={props.role.id} onClick={props.clickEdit}><Icon path={mdiPencil}
                         size={.7}
                         className='mdi'
                     /></div>
